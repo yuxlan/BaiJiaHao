@@ -1,0 +1,24 @@
+{
+  "name": "HJ-website",
+  "version": "0.0.1",
+  "description": "a official website for HJ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "YuXLan",
+  "license": "ISC",
+  "keywords": [
+    "express",
+    "official website"
+  ],
+  "devDependencies": {
+    "express": "",
+    "serve-favicon": "",
+    "webpack": ""
+  }
+}
