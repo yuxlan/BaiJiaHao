@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /*
  * Written By YuXLan
  */
@@ -23,18 +25,19 @@ nav div{
 }
 
 nav p{
-	margin: 3% 0 2% 29%;
+	margin: 3% 0 2% 23%;
 	display: inline;
 	font-size: .8em;
 }
 
 .nav-hr{
 	margin-top: 2%;
+	width: 100%;
 }
 
 .register-form{
-	width: 25%;
-	margin: 2% 55% 0 20%;
+	width: 40%;
+	margin: 2% 0 0 10%;
 }
 
 .register-form input{
@@ -59,18 +62,13 @@ nav p{
 }
 
 .register-form .btn-primary{
-	margin-left: 12.5%;
-	background: #0044CC;
-}
-
-.btn-primary:hover{
-	background: #0047ff;
+	margin-left: 11%;
 }
 
 .alert{
-	width: 17%;
+	width: 30%;
 	float: right;
-	margin: -19% 18.5% 0 0;
+	margin: -300px 10% 0 0;
 	border-radius: 0 0 0 0;
 }
 
@@ -90,116 +88,174 @@ nav p{
 	color: #f18300;
 }
 
-
-/* 登录注册部分 */
-
-.login-form{
-	width: 25%;
-	height: 55%;
-	margin: 10% 0 0 35%;
-	background: #FFFFFF;
-}
-
-.close{
-	margin-right: 5%;
-	margin-top: 3%;
-}
-
-.login-form h4{
-	width: 120%;
-	height: 3em;
-	background: #FBFBFB;
-	border-bottom: 1px solid #F2F2F2;
-	text-align: center;
-	line-height: 3em;
-	padding: 0 0 0 0;
-	margin-top: -1%;
-}
-
-.login-quikly{
-	color: #000000;
-	font-size: .9em;
-	float: right;
-	margin-right: 10%;
-}
-
-.login-quikly:hover{
-	color: #0047ff;
-	font-size: .9em;
-	float: right;
-	margin-right: 10%;
-}
-
-.login-form form{
-	margin: 0 0 3% 0;
-}
-
-
-.login-form form input{
-	width: 80%;
-	height: 3em;
-	margin: 5% 10% 0 10%;
-}
-
-#remember{
-	height: 1em;
-	margin: 5% 0 0 0;
-	margin-left: -28%;
-}
-
-.login-form p{
-	display: inline;
-	margin-left: -37%;
-	font-size: .9em;
-}
-
-.login-have-question{
-	color: #0044CC;
-	font-size: 1em;
-	margin-left: 34%;
-}
-
-.login-have-question:hover{
-	color: #0047ff;
-	font-size: 1em;
-	margin-left: 34%;
-}
-
-.register-now{
-	color: #0044CC;
-	font-size: .8em;
-	margin: 0 0 0 78%;
-}
-
-.register-now:hover{
-	color: #0047ff;
-	font-size: .8em;
-	margin: 0 0 0 78%;
-}
-
-.login-form hr{
-	margin: 10% 0 0 0;
-}
-
-.login-third{
-	color: #000000;
-	font-size: .8em;
-	margin: 15% 0 0 5%;
-}
-
-.weibo-login{
-	width: 6%;
-	margin: 4% 0 0 6%;
-}
-
-.qq-login{
-	width: 5%;
-	margin: 4% 0 0 4%;
-}
-
 .footer-text{
 	color: #0047FF;
 	text-align: center;
 	font-size: .8em;
 	margin-top: 8%;
+}
+
+/*  登录表单  */
+
+/*  自加样式  */
+.modal-body-login-quikly{
+	float: right;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.modal-body-login-quikly:hover,
+.modal-body-login-quikly:active{
+	color: rgb(27, 102, 199);
+}
+
+.form-control-button{
+	width: 100%;
+	height: 45px;
+	margin-top: 7px;
+}
+
+#checked{
+	margin-top: 13px;
+}
+
+.modal-body-a,
+.modal-body-a:visited,
+.modal-body-a:hover,
+.modal-body-a:active{
+	float: right;
+	margin-top: 13px;
+	font-size: 12px;
+	color: rgb(27, 102, 199);
+}
+
+.modal-footer > p{
+	font-size: 12px;
+}
+
+.modal-logo-phone{
+	width: 15%;
+}
+
+.modal-logo-weibo{
+	width: 7%;
+	margin: 2px 4px 2px 4px;
+}
+
+.modal-logo-qq{
+	width: 5.5%;
+	margin: 2px 0 2px 4px;
+}
+
+.form-control-user{
+	background-image: url(../imgs/icons/input_icons_user_gray.png);
+	background-position-y: center;
+	background-repeat: no-repeat;
+}
+
+.form-control-pwd{
+	background-image: url(../imgs/icons/input_icons_pwd_gray.png);
+	background-position-y: center;
+	background-repeat: no-repeat;
+}
+
+
+.modal-logo-erweima{
+	float: right;
+	margin-top: -44px;
+}
+
+.modal-logo-zhanghao{
+	position: absolute;
+	margin-top: -44px;
+	margin-left: 158px;
+	z-index: 5;
+}
+
+.zhanghao-login{
+	display: block;
+}
+
+.erweima-login{
+	display: none;
+	text-align: center;
+}
+
+.erweima-login-h1{
+	font-size: 15px;
+}
+
+.erweima-login-h1 > strong > a,
+.erweima-login-h1 > strong > a:hover{
+	color: #3488ff;
+	text-decoration: none;
+}
+
+.erweima-login-img{
+	width: 125px;
+	margin-top: 20px;
+}
+
+.erweima-login-p{
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 60px;
+	background: url(../imgs/icons/qrcodetitle.png) no-repeat 85px 0;
+}
+
+/*  修改bootstrap  */
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 50px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .modal-sm {
+    width: 400px;
+  }
+}
+.modal-content {
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.modal-header {
+  padding: 8px 20px 8px 20px;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #FBFBFB;
+}
+.modal-header .close {
+  margin-top: 8px;
+  font-size: 24px;
+}
+.form-control {
+  height: 40px;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: 15px;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #3f89ec;
+  border-color: #3f89ec;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #3a84e8;
+  border-color: #3a84e8;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #4490f7;
+  border-color: #4490f7;
+}
+.modal-footer {
+  text-align: left;
+  margin-top: 45px;
 }
