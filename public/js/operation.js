@@ -68,16 +68,30 @@ $(function(){
 		$(".carousel-control").css("line-height",'$height+"px"');
 	});
 
+//	周榜日榜切换
+    $("#dayclick").click(function () {
+        $("#day").css("display","block");
+        $("#week").css("display","none");
+        $("#dayclick").addClass("active");
+        $("#weekclick").removeClass("active");
+    });
+    $("#weekclick").click(function () {
+        $("#day").css("display","none");
+        $("#week").css("display","block");
+        $("#dayclick").removeClass("active");
+        $("#weekclick").addClass("active");
+    });
+
 //	返回顶部
 	$(window).scroll(function(){
 		var sc=$(window).scrollTop();
-		var rwidth=$(window).width()
+		var rwidth=$(window).width();
 		if(sc>0){
 			$("#scrolltop").css("display","block");
 		}else{
 			$("#scrolltop").css("display","none");
 		}
-	})
+	});
 	$("#scrolltop").click(function(){
 		var sc=$(window).scrollTop();
 		$('body,html').animate({scrollTop:0},500);

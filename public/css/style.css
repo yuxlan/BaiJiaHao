@@ -452,7 +452,7 @@ a{
 	text-decoration: none;
 }
 
-.media-side > li:nth-child(2) > ul > a > li.active{
+.active{
 	border-bottom: 2px solid #0047ff;
 }
 
@@ -520,6 +520,14 @@ a{
 	font-size: 1em;
 	color: #999999;
 	margin-left: 4%;
+}
+
+#day{
+	display: block;
+}
+
+#week{
+	display: none;
 }
 
 /*  修改bootstrap  */
