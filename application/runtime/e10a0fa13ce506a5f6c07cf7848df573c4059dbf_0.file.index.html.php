@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-26 10:20:07
+  from "D:\php\wamp\www\php\BaiJiaHao\application\views\home\index.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5977fc57b2c1d8_61175314',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'e10a0fa13ce506a5f6c07cf7848df573c4059dbf' => 
+    array (
+      0 => 'D:\\php\\wamp\\www\\php\\BaiJiaHao\\application\\views\\home\\index.html',
+      1 => 1501035601,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:home/footer.html' => 1,
+  ),
+),false)) {
+function content_5977fc57b2c1d8_61175314 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -428,12 +453,17 @@
 			</div>
 
 		<!--  页尾部分   -->
-		{include file='home/footer.html'}
+		<?php $_smarty_tpl->_subTemplateRender("file:home/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 		
 		<!-- 自定义操作 -->
-		<script src="public/js/operation.js"></script>
+		<?php echo '<script'; ?>
+ src="public/js/operation.js"><?php echo '</script'; ?>
+>
 
 
 		
 	</body>
-</html>
+</html><?php }
+}

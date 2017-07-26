@@ -3,7 +3,7 @@
 //final:这样的类不能被继承
 final class Tool{
     //一个滚动条方法
-    public static function progress($_msg,$_url,$_flag=1,$_t=5){
+    public static function progress($_msg,$_url,$_flag,$_t){
         $css="<style type='text/css'>";
         $css.=".progressBox{ width: 30%; height: 30px; position: absolute; top:0; bottom:0; left:0; right:0; margin: auto; }";
         $css.="</style>";
@@ -16,7 +16,6 @@ final class Tool{
         echo $css.$str.$js;
     }
 }
-Tool::progress('ok','',0,10);
 
 
 

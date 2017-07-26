@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台首页</title>
+    <link rel="stylesheet" href="public/css/admin/admin.css">
+    <link rel="shortcut icon" href="public/imgs/logos/favicon.png"/>
+</head>
+<body>
+<div class="container-fluid admin">
+    <div class="row top">
+        <div class="col-md-2 text-center">
+            <span class="glyphicon glyphicon-th-list" id="list" title="隐藏菜单栏"></span>
+        </div>
+        <div class="col-md-2 text-center">
+            <img src="public/imgs/logos/logo.png" title="400*114" height="50" id="logo">
+        </div>
+        <div class="col-md-8 text-center topRight">
+            <a href="?c=admin">后台首页</a>
+            <a href="?c=index" target="_blank">商城首页</a>
+        </div>
+    </div>
+    <div class="row middle">
+        <div class="col-md-2 middleLeft" style=" width: 16.6%;">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <!--导航-->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                               aria-expanded="false" aria-controls="collapseOne">
+                                导航设置
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="?c=nav&action=show" target="main">管理导航</a></li>
+                                <li><a href="?c=nav&action=add" target="main">添加导航</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 middleRight">
+            <iframe name="main" src="?a=admin&m=welcome"></iframe>
+        </div>
+    </div>
+    <div class="row bottom">
+        {include file='home/footer.html'}
+    </div>
+
+</div>
+</body>
+</html>
