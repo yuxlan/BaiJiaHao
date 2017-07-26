@@ -7,7 +7,7 @@ class Page{
     private $currentPage; // 当前页
     private $total; // 数据总数
     private $pageNum; // 总页数
-    private $listRows = 3; // 每页数目
+    private $listRows = 6; // 每页数目
     private $num = 3;
 
     public function __construct($total){
