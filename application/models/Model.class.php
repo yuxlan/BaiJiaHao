@@ -19,7 +19,16 @@ class Model{
         $sql = "select * from ".$_table." ".$_where." ".$_limit;
         $result = $this->db->query($sql);
         $data = $result->fetchAll(PDO::FETCH_ASSOC);
+//        var_dump($data);
         return $data;
+    }
+
+//    获取数据总数
+    protected function total($_table){
+        $sql = "select * from $_table";
+//        rowCount()  获取总数
+        $result = $this->db->query($sql)->rowCount();
+        return $result;
     }
 
 //    添加数据
@@ -60,6 +69,25 @@ class Model{
         $result = $this->db->query($sql);
         $data = $result->fetchObject()->Auto_increment;
         return $data;
+    }
+
+//    删除数据
+    protected function delete($_table,$_where){
+        $sql = "delete from ".$_table." ".$_where;
+//        var_dump($sql);
+        $result = $this->db->exec($sql);
+//        var_dump($result);
+        return $result;
+    }
+
+//    排序方法
+    protected function sort($_table,$_sorts){
+        $num = 0;
+        foreach ($_sorts as $k=>$v){
+            $sql = "update $_table set sort=$v where id=$k";
+            $this->db->exec($sql);
+        }
+        return $num;
     }
 }
 

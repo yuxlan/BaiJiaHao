@@ -19,48 +19,56 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>导航名</th>
-                            <th>描述</th>
-                            <th>状态</th>
-                            <th>操作</th>
-                            <th>排序</th>
-                            <th>
-                                <label for="allNav">全选 </label>
-                                <input type="checkbox" id="allNav">
-                            </th>
-                        </tr>
-                        {foreach $navData as $key=>$value}
+                    <form action="" method="post">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>导航名</th>
+                                <th>描述</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                                <th>排序</th>
+                                <th>
+                                    <label for="allNav">全选 </label>
+                                    <input type="checkbox" id="allNav">
+                                </th>
+                            </tr>
+                            {foreach $navData as $key=>$value}
                             <tr>
                                 <td>{$value['name']}</td>
                                 <td>{$value['decs']}</td>
                                 <td>{$value['state']}</td>
                                 <td>
                                     <a href="?c=nav&action=update&id={$value['id']}">修改</a>
-                                    <a href="">删除</a>
+                                    <a href="?c=nav&action=delete&id={$value['id']}">删除</a>
                                 </td>
                                 <td>
-                                    <input type="text" value="{$value['sort']}" class="form-control text-center" style="width: 50px">
+                                    <input type="text" value="{$value['sort']}" name="sorts[{$value['id']}]" class="form-control text-center" style="width: 50px">
                                 </td>
                                 <td>
                                     <label for="{$value['id']}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="checkbox" id="{$value['id']}">
+                                    <input type="checkbox" id="{$value['id']}" class="choose" name="checked[]" value="{$value['id']}">
                                 </td>
                             </tr>
-                        {/foreach}
-                        <tr>
-                            <td colspan="4">
-                                {$allPage}
-                            </td>
-                            <td style="vertical-align: middle">
-                                <input type="submit" name="sort" value="排序" class="btn btn-primary">
-                            </td>
-                            <td style="vertical-align: middle">
-                                <input type="submit" name="delete" value="删除" class="btn btn-danger">
-                            </td>
-                        </tr>
-                    </table>
+                            {/foreach}
+                            <script type="text/javascript">
+//                                on：对将来有脚本生成的元素的js有效果
+                                $(document).on('click','#allNav',function () {
+                                        $(".choose").prop("checked",$(this).prop("checked"));
+                                });
+                            </script>
+                            <tr>
+                                <td colspan="4">
+                                    {$allPage}
+                                </td>
+                                <td style="vertical-align: middle">
+                                    <input type="submit" name="sort" value="排序" class="btn btn-primary">
+                                </td>
+                                <td style="vertical-align: middle">
+                                    <input type="submit" name="delete" value="删除" class="btn btn-danger">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
             </div>
         {/if}

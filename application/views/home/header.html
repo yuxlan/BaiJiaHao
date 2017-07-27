@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>header</title>
+
+        <link rel="stylesheet" href="public/css/header.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <a href="application/views/home/index.html" class="navbar-brand">
+                        <img src="public/imgs/logos/logo.png" class="navbar-logo" />
+                    </a>
+                </div>
+
+                <ul class="nav nav-pills">
+                    {foreach $navData as $k=>$v}
+                        {if $k==0}
+                            <li class="{$array[$k]}">
+                                <a href="index.php?type={$k}&content={$v['name']}">{$v['name']}</a>
+                            </li>
+                        {else}
+                            <li class="{$array[$k]}">
+                                <a href="index.php?p=page&type={$k}&content={$v['name']}">{$v['name']}</a>
+                            </li>
+                        {/if}
+                    {/foreach}
+                </ul>
+
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="?m=main">成为百家号作者</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" id="btn">登录</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">百度首页</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </body>
+</html>
