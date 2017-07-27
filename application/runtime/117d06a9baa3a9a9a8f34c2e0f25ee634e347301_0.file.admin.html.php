@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 10:20:07
+/* Smarty version 3.1.30, created on 2017-07-27 09:40:50
   from "D:\php\wamp\www\php\BaiJiaHao\application\views\admin\admin.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5977fc5798e077_01965724',
+  'unifunc' => 'content_597944a2d9ad51_43295435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '117d06a9baa3a9a9a8f34c2e0f25ee634e347301' => 
     array (
       0 => 'D:\\php\\wamp\\www\\php\\BaiJiaHao\\application\\views\\admin\\admin.html',
-      1 => 1501035370,
+      1 => 1501119644,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/footer.html' => 1,
   ),
 ),false)) {
-function content_5977fc5798e077_01965724 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597944a2d9ad51_43295435 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ function content_5977fc5798e077_01965724 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </div>
         <div class="col-md-10 middleRight">
-            <iframe name="main" src="?a=admin&m=welcome"></iframe>
+            <iframe name="main" src="?c=admin&m=welcome"></iframe>
         </div>
     </div>
     <div class="row bottom">

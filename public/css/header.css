@@ -1,0 +1,96 @@
+/*
+ * 导航栏
+ */
+
+
+/*  自加样式  */
+.navbar-logo{
+    width: 143px;
+    margin: 15px 47px 2px -9px;
+}
+
+
+/*  修改bootstrap  */
+.navbar {
+    min-height: 94px;
+    border: 1px solid #dfdfdf;
+}
+
+.navbar-default{
+    background: #FFFFFF;
+}
+
+.nav > li > a {
+    padding: 41px 0 5px  0;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background: none;
+}
+
+.nav-pills > li > a {
+    border-radius: 0;
+    font-size: 18px;
+}
+.nav-pills > li {
+    float: left;
+}
+
+.nav-pills > li + li {
+    margin-left: 48px;
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus,
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    color: #0047ff;
+    font-size: 18px;
+    background: none;
+    text-decoration: none;
+    border-bottom: 2px solid #0047ff;
+}
+
+.nav-tabs {
+    border-bottom: none;
+    float: right;
+    margin: -107px 0 0 0;
+}
+
+.nav-tabs > li:not(:last-child) {
+    float: left;
+    margin-bottom: -1px;
+    margin-right: 30px;
+}
+
+.nav-tabs > li:last-child {
+    float: left;
+    margin-bottom: -1px;
+    margin-right: 5px;
+}
+
+.nav-tabs > li > a {
+    font-size: 12px;
+    color: #999999;
+    margin-right: 2px;
+    border: none;
+    border-radius: 0;
+}
+
+.nav-tabs > li > a:hover {
+    border: none;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #999999;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-bottom: none;
+}
+
