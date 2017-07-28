@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 13:42:31
+/* Smarty version 3.1.30, created on 2017-07-28 17:54:23
   from "D:\php\wamp\www\php\BaiJiaHao\application\views\admin\nav.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59797d47488154_87535248',
+  'unifunc' => 'content_597b09cfa51815_23862287',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70e03d2e002135811f6bced314f43caf56c09ee9' => 
     array (
       0 => 'D:\\php\\wamp\\www\\php\\BaiJiaHao\\application\\views\\admin\\nav.html',
-      1 => 1501134127,
+      1 => 1501235642,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59797d47488154_87535248 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597b09cfa51815_23862287 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,12 +28,12 @@ function content_59797d47488154_87535248 (Smarty_Internal_Template $_smarty_tpl)
         <meta charset="UTF-8">
         <title>nav</title>
     </head>
-    <body>
+    <body style="overflow-x: hidden;">
 
         <?php if ($_smarty_tpl->tpl_vars['show']->value) {?>
             <div class="row">
                 <div class="col-md-12">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>
                         <li><a href="?c=nav&action=show">导航管理</a></li>
                         <li class="active">所有导航</li>
@@ -44,7 +44,7 @@ function content_59797d47488154_87535248 (Smarty_Internal_Template $_smarty_tpl)
             <div class="row">
                 <div class="col-md-12">
                     <form action="" method="post">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" style="width: 98%; margin: auto;">
                             <tr>
                                 <th>导航名</th>
                                 <th>描述</th>
@@ -123,7 +123,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
             <div class="row">
                 <div class="col-md-12">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>
                         <li><a href="?c=nav&action=show">导航管理</a></li>
                         <li class="active">添加导航</li>
@@ -134,7 +134,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
             <div class="row">
                 <div class="col-md-12">
                     <form action="" method="post" enctype="multipart/form-data">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" style="width: 98%; margin: auto;">
                             <tr>
                                 <td class="text-center" width="120">导航名称</td>
                                 <td><input type="text" class="form-control" name="navName"></td>
@@ -159,7 +159,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
             <div class="row">
                 <div class="col-md-12">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>
                         <li><a href="?c=nav&action=show">导航管理</a></li>
                         <li class="active">修改导航</li>
@@ -170,7 +170,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="width: 98%; margin: auto;">
                         <tr>
                             <td class="text-center" width="120">导航名称</td>
                             <td><input type="text" class="form-control" name="navName" value="<?php echo $_smarty_tpl->tpl_vars['data']->value[0]['name'];?>

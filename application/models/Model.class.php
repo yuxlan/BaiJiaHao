@@ -52,7 +52,7 @@ class Model{
     }
 
 //    修改数据
-    protected function update($_table,$array,$_where){
+    protected function update($_table,$array,$_where=null){
         $str = null;
         foreach ($array as $key=>$value){
             $str .= $key."='".$value."',";
@@ -72,7 +72,7 @@ class Model{
     }
 
 //    删除数据
-    protected function delete($_table,$_where){
+    protected function delete($_table,$_where=null){
         $sql = "delete from ".$_table." ".$_where;
 //        var_dump($sql);
         $result = $this->db->exec($sql);
