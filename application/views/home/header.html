@@ -20,11 +20,11 @@
                     {foreach $navData as $k=>$v}
                         {if $k==0}
                             <li class="{$array[$k]}">
-                                <a href="index.php?type={$k}&content={$v['name']}">{$v['name']}</a>
+                                <a href="index.php?nid={$v['id']}">{$v['name']}</a>
                             </li>
                         {else}
                             <li class="{$array[$k]}">
-                                <a href="index.php?p=page&type={$k}&content={$v['name']}">{$v['name']}</a>
+                                <a href="index.php?p=page&nid={$v['id']}">{$v['name']}</a>
                             </li>
                         {/if}
                     {/foreach}
@@ -38,7 +38,7 @@
                         <a href="javascript:;" id="btn">登录</a>
                     </li>
                     <li>
-                        <a href="javascript:;">百度首页</a>
+                        <a href="?c=admin">百度首页</a>
                     </li>
                 </ul>
 

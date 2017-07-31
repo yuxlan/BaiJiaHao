@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-31 20:22:42
+  from "D:\php\wamp\www\BaiJiaHao\application\views\admin\ad.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_597f21129a3528_58611003',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ad5c52d1ed461eee72867e027983721df99b9eb2' => 
+    array (
+      0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\admin\\ad.html',
+      1 => 1501490120,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_597f21129a3528_58611003 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +30,7 @@
     </head>
     <body style="overflow-x: hidden;">
 
-        {if $add}
+        <?php if ($_smarty_tpl->tpl_vars['add']->value) {?>
             <div class="row">
                 <div class="col-md-12">
                     <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
@@ -41,7 +65,8 @@
                                     <img src="" alt="预览图片" class="img-circle fileImg" width="100" height="100" style="line-height: 100px; text-align: center">
                                 </td>
                             </tr>
-                            <script type="text/javascript">
+                            <?php echo '<script'; ?>
+ type="text/javascript">
                                 var fileInput = document.getElementsByClassName('fileInput')[0];
                                 fileInput.onchange = function () {
                                     var fr = new FileReader();
@@ -50,7 +75,8 @@
                                         document.getElementsByClassName('fileImg')[0].src = this.result;
                                     }
                                 }
-                            </script>
+                            <?php echo '</script'; ?>
+>
                             <tr>
                                 <td colspan="2" class="text-center">
                                     <input type="submit" value="提交" name="send" class="btn btn-success">
@@ -60,9 +86,9 @@
                     </form>
                 </div>
             </div>
-        {/if}
+        <?php }?>
 
-        {if $show}
+        <?php if ($_smarty_tpl->tpl_vars['show']->value) {?>
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
@@ -90,33 +116,56 @@
                                 <input type="checkbox" id="allAd">
                             </th>
                         </tr>
-                        {foreach $adData as $key=>$value}
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['adData']->value, 'value', false, 'key');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['value']->value) {
+?>
                         <tr>
-                            <td>{substr($value['title'],0,12)}……</td>
-                            <td>{substr($value['link'],0,12)}……</td>
-                            <td><img src="public/uploads/ad/{$value['pic']}" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
-                            <td>{substr($value['decs'],0,12)}……</td>
-                            <td>{$value['date']}</td>
-                            <td>{$value['state']}</td>
+                            <td><?php echo substr($_smarty_tpl->tpl_vars['value']->value['title'],0,12);?>
+……</td>
+                            <td><?php echo substr($_smarty_tpl->tpl_vars['value']->value['link'],0,12);?>
+……</td>
+                            <td><img src="public/uploads/ad/<?php echo $_smarty_tpl->tpl_vars['value']->value['pic'];?>
+" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
+                            <td><?php echo substr($_smarty_tpl->tpl_vars['value']->value['decs'],0,12);?>
+……</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['value']->value['date'];?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['value']->value['state'];?>
+</td>
                             <td>
-                                <a href="?c=ad&action=update&id={$value['id']}">修改</a>
-                                <a href="?c=ad&action=delete&id={$value['id']}">删除</a>
+                                <a href="?c=ad&action=update&id=<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
+">修改</a>
+                                <a href="?c=ad&action=delete&id=<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
+">删除</a>
                             </td>
                             <td>
-                                <label for="{$value['id']}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input type="checkbox" id="{$value['id']}" class="choose" name="checked[]" value="{$value['id']}">
+                                <label for="<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="checkbox" id="<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
+" class="choose" name="checked[]" value="<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
+">
                             </td>
                         </tr>
-                        {/foreach}
-                        <script type="text/javascript">
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                        <?php echo '<script'; ?>
+ type="text/javascript">
                             //                                on：对将来有脚本生成的元素的js有效果
                             $(document).on('click','#allAd',function () {
                                 $(".choose").prop("checked",$(this).prop("checked"));
                             });
-                        </script>
+                        <?php echo '</script'; ?>
+>
                         <tr>
                             <td colspan="6">
-                                {$allPage}
+                                <?php echo $_smarty_tpl->tpl_vars['allPage']->value;?>
+
                             </td>
                             <td style="vertical-align: middle">
                                 <input type="submit" name="delete" value="删除" class="btn btn-danger">
@@ -126,9 +175,9 @@
                 </form>
             </div>
         </div>
-        {/if}
+        <?php }?>
 
-        {if $update}
+        <?php if ($_smarty_tpl->tpl_vars['update']->value) {?>
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
@@ -145,25 +194,30 @@
                     <table class="table table-bordered" style="width: 98%; margin: auto;">
                         <tr>
                             <td class="text-center" width="120">广告标题</td>
-                            <td><input type="text" class="form-control" name="adName" value="{$data[0]['title']}"></td>
+                            <td><input type="text" class="form-control" name="adName" value="<?php echo $_smarty_tpl->tpl_vars['data']->value[0]['title'];?>
+"></td>
                         </tr>
                         <tr>
                             <td class="text-center" width="120">广告链接</td>
-                            <td><input type="text" class="form-control" name="adLink" value="{$data[0]['link']}"></td>
+                            <td><input type="text" class="form-control" name="adLink" value="<?php echo $_smarty_tpl->tpl_vars['data']->value[0]['link'];?>
+"></td>
                         </tr>
                         <tr>
                             <td class="text-center" width="120">广告描述</td>
-                            <td><input type="text" class="form-control" name="adDecs" value="{$data[0]['decs']}"></td>
+                            <td><input type="text" class="form-control" name="adDecs" value="<?php echo $_smarty_tpl->tpl_vars['data']->value[0]['decs'];?>
+"></td>
                         </tr>
                         <tr>
                             <td class="text-center" width="120">广告图片</td>
                             <td>
                                 <label for="file1" style="cursor: pointer; font-size: 14px; color: #9d9d9d;">上传文件</label>
                                 <input type="file" class="hide fileInput1" id="file1" name="adPicUpdate">
-                                <img src="public/uploads/ad/{$data[0]['pic']}" alt="预览图片" class="img-circle fileImg1" width="100" height="100" style="line-height: 100px; text-align: center">
+                                <img src="public/uploads/ad/<?php echo $_smarty_tpl->tpl_vars['data']->value[0]['pic'];?>
+" alt="预览图片" class="img-circle fileImg1" width="100" height="100" style="line-height: 100px; text-align: center">
                             </td>
                         </tr>
-                        <script type="text/javascript">
+                        <?php echo '<script'; ?>
+ type="text/javascript">
                             var fileInput = document.getElementsByClassName('fileInput1')[0];
                             fileInput.onchange = function () {
                                 var fr = new FileReader();
@@ -172,7 +226,8 @@
                                     document.getElementsByClassName('fileImg1')[0].src = this.result;
                                 }
                             };
-                        </script>
+                        <?php echo '</script'; ?>
+>
                         <tr>
                             <td colspan="2" class="text-center">
                                 <input type="submit" value="提交" name="send" class="btn btn-success">
@@ -182,7 +237,8 @@
                 </form>
             </div>
         </div>
-        {/if}
+        <?php }?>
 
     </body>
-</html>
+</html><?php }
+}

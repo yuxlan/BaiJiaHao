@@ -1,9 +1,8 @@
 <?php
 
-
 class indexAction extends Action {
-//    链接路径
 
+//    链接路径
     public function main(){
         switch ($_GET['p']){
             case 'page':
@@ -18,50 +17,56 @@ class indexAction extends Action {
 
     private function index(){
         $this->smarty->assign('index',true);
-        $navData = $this->model->getNav();
 
+//        主导航栏
+        $navData = $this->model->getNav();
         $array = [];
-        for ($i = 0; $i < count($navData); $i++){
-            if ($i == 0){
+        foreach ($navData as $k=>$v){
+            if ($k == 0){
                 $array[] = 'active';
             } else {
                 $array[] = '';
             }
         }
-
         $this->smarty->assign('array',$array);
         $this->smarty->assign('navData',$navData);
+
+        $adData = $this->model->getAd();
+        $this->smarty->assign('adData',$adData);
+//        var_dump($adData);
 //        var_dump($navData);
     }
 
     private function page(){
         $this->smarty->assign('page',true);
-        $navData = $this->model->getNav();
+        $this->common();
+    }
 
+    private function common(){
+        $navData = $this->model->getNav();
         $array = [];
-        for ($i = 0; $i < count($navData); $i++){
-            if ($i == $_GET['type']){
-                $array[] = 'active';
-            } else {
-                $array[] = '';
+
+        if (empty($_GET['nid'])){
+            foreach ($navData as $k=>$v){
+                if ($k==0){
+                    $array[] = 'active';
+                } else {
+                    $array[] = '';
+                }
+            }
+        } else{
+            foreach ($navData as $k=>$v){
+                if ($v['id'] == $_GET['nid']){
+                    $array[] = 'active';
+                } else {
+                    $array[] = '';
+                }
             }
         }
 
         $this->smarty->assign('array',$array);
         $this->smarty->assign('navData',$navData);
     }
-
-//    public function keJi(){
-//        $this->smarty->display('home/vicepage.html');
-//    }
-//
-//    public function register(){
-//        $this->smarty->display('home/register.html');
-//    }
 }
-
-
-
-
 
 ?>

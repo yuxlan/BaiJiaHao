@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 16:15:33
-  from "D:\php\wamp\www\php\BaiJiaHao\application\views\home\header.html" */
+/* Smarty version 3.1.30, created on 2017-07-31 20:19:00
+  from "D:\php\wamp\www\BaiJiaHao\application\views\home\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979a1257a99d1_06320046',
+  'unifunc' => 'content_597f2034245ad4_51169978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'da8308221ff28aa54ae7789e796c210b80e2ec0e' => 
+    'c4534d6b528dee303b93276ca9e70e326f3869c0' => 
     array (
-      0 => 'D:\\php\\wamp\\www\\php\\BaiJiaHao\\application\\views\\home\\header.html',
-      1 => 1501143330,
+      0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\home\\header.html',
+      1 => 1501479792,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5979a1257a99d1_06320046 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f2034245ad4_51169978 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,16 +49,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
                         <?php if ($_smarty_tpl->tpl_vars['k']->value == 0) {?>
                             <li class="<?php echo $_smarty_tpl->tpl_vars['array']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 ">
-                                <a href="index.php?type=<?php echo $_smarty_tpl->tpl_vars['k']->value;?>
-&content=<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+                                <a href="index.php?nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 </a>
                             </li>
                         <?php } else { ?>
                             <li class="<?php echo $_smarty_tpl->tpl_vars['array']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 ">
-                                <a href="index.php?p=page&type=<?php echo $_smarty_tpl->tpl_vars['k']->value;?>
-&content=<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+                                <a href="index.php?p=page&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 </a>
                             </li>
@@ -79,7 +77,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                         <a href="javascript:;" id="btn">登录</a>
                     </li>
                     <li>
-                        <a href="javascript:;">百度首页</a>
+                        <a href="?c=admin">百度首页</a>
                     </li>
                 </ul>
 

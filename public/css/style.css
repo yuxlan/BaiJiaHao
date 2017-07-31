@@ -41,7 +41,7 @@ a{
 	padding-top: 2%;
 	background: rgba(0,0,0,0.4);
 }
-
+/*ctrl+shift+r*/
 .carousel-side-div .carousel-logo-img{
 	width: 60%;
 	height: 30%;
@@ -120,76 +120,76 @@ a{
 /*  修改bootstrap  */
 
 .carousel-inner > .item {
-  -webkit-transition-property:opacity ;
-  -moz-transition-property:opacity ;
-  -ms-transition-property:opacity ;
-  -o-transition-property:opacity ;
-  transition-property:opacity ;
-  opacity:0;
+	-webkit-transition-property:opacity ;
+	-moz-transition-property:opacity ;
+	-ms-transition-property:opacity ;
+	-o-transition-property:opacity ;
+	transition-property:opacity ;
+	opacity:0;
 }
 
 .carousel-inner > .item.active{
-  opacity: 1;
+	opacity: 1;
 }
 
 .carousel-inner > .item.active.left,
 .carousel-inner > .item.active.right{
-  left: 0;
-  opacity: 0;
+	left: 0;
+	opacity: 0;
 }
 
 .carousel-inner > .item.next.left,
 .carousel-inner > .item.prev.right {
-  opacity: 1;
+	opacity: 1;
 }
 
 .carousel-control {
-  width: 8%;
-  font-size: 100px;
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-  background-color: rgba(0, 0, 0, 0);
-  filter: alpha(opacity=50);
-  opacity: .5;
+	width: 8%;
+	font-size: 100px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	background-color: rgba(0, 0, 0, 0);
+	filter: alpha(opacity=50);
+	opacity: .5;
 }
 
 .carousel-control.left,
 .carousel-control.right {
-  background-image: none;
-  filter: none;
+	background-image: none;
+	filter: none;
 }
 
 .carousel-indicators {
-  bottom: 8px;
-  left: 90%;
+	bottom: 8px;
+	left: 90%;
 }
 
 .carousel-indicators li {
-  background-color: #999999;
-  border: 1px solid #999999;
+	background-color: #999999;
+	border: 1px solid #999999;
 }
 
 @media (min-width: 768px) {
- .carousel-container .container {
-    width: 768px;
-  }
+	.carousel-container .container {
+		width: 768px;
+	}
 }
 @media (min-width: 992px) {
- .carousel-container .container {
-    width: 992px;
-  }
+	.carousel-container .container {
+		width: 992px;
+	}
 }
 @media (min-width: 1200px) {
- .carousel-container .container {
-    width: 1190px;
-  }
- .carousel-container .col-lg-8 {
-    width: 69.3%;
-  }
- .carousel-container  .col-lg-4 {
-    width: 30.7%;
-  }
+	.carousel-container .container {
+		width: 1190px;
+	}
+	.carousel-container .col-lg-8 {
+		width: 69.3%;
+	}
+	.carousel-container  .col-lg-4 {
+		width: 30.7%;
+	}
 }
 
 
@@ -353,7 +353,7 @@ a{
 	text-decoration: none;
 }
 
-.active{
+.media-side > li:nth-child(2) > ul > a > li.active{
 	border-bottom: 2px solid #0047ff;
 }
 
@@ -423,37 +423,31 @@ a{
 	margin-left: 4%;
 }
 
-#day{
-	display: block;
-}
-
-#week{
-	display: none;
-}
-
 /*  修改bootstrap  */
 
 @media (min-width: 768px) {
-.media-part .container {
-    width: 768px;
-  }
+	.media-part .container {
+		width: 768px;
+	}
 }
 @media (min-width: 992px) {
- .media-part .container {
-    width: 992px;
-  }
+	.media-part .container {
+		width: 992px;
+	}
 }
 @media (min-width: 1200px) {
- .media-part .container {
-    width: 1190px;
-  }
- .media-part .col-lg-8 {
-    width: 69.3%;
-  }
- .media-part .col-lg-4 {
-    width: 30.7%;
-  }
+	.media-part .container {
+		width: 1190px;
+	}
+	.media-part .col-lg-8 {
+		width: 69.3%;
+	}
+	.media-part .col-lg-4 {
+		width: 30.7%;
+	}
 }
+
+
 
 /*  二维码返回顶部部分  */
 .erweima{
