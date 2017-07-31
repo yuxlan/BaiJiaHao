@@ -15,16 +15,4 @@ class Action{
         method_exists($this,$method)?eval('$this->'.$method.'();'):$this->main();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

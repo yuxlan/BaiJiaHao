@@ -33,7 +33,6 @@ class Model{
 
 //    添加数据
     protected function add($_table,$array){
-//        key1=>value1,key2=>value2……
         $_key = null;
         $_value = null;
         foreach ($array as $key=>$value){

@@ -26,6 +26,8 @@
 				<div class="container">
 					<div class="row">
 
+
+
 						<!-- 轮播图 -->
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
@@ -33,35 +35,30 @@
 
 								<!-- 轮播游标 -->
 								<ol class="carousel-indicators">
-									<li data-target = "#myLb" data-slide-to = "0" class="active"></li>
-									<li data-target = "#myLb" data-slide-to = "1"></li>
-									<li data-target = "#myLb" data-slide-to = "2"></li>
-									<li data-target = "#myLb" data-slide-to = "3"></li>
+									{foreach $adData as $k=>$v}
+									{if $k==0}
+									<li data-target = "#myLb" data-slide-to = "{$k}" class="active"></li>
+									{else}
+									<li data-target = "#myLb" data-slide-to = "{$k}"></li>
+									{/if}
+									{/foreach}
 								</ol>
 
 								<!-- 轮播内容 -->
 								<div class="carousel-inner">
-
+									{foreach $adData as $k=>$v}
+									{if $k==0}
 									<div class="item active">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-1.jpg" alt=""/>
+										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</p>
+										<img src="public/uploads/ad/{$v['pic']}" alt=""/>
 									</div>
-
+									{else}
 									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-2.jpg" alt=""/>
+										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</p>
+										<img src="public/uploads/ad/{$v['pic']}" alt=""/>
 									</div>
-
-									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-3.jpg" alt=""/>
-									</div>
-
-									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-4.jpg" alt=""/>
-									</div>
-
+									{/if}
+									{/foreach}
 								</div>
 
 								<!-- 轮播控制杆 -->
@@ -70,6 +67,8 @@
 
 							</div>
 						</div>
+
+
 
 						<!-- 侧边图片 -->
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

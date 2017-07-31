@@ -1,5 +1,4 @@
-
-
+<!-- title logo -->
 <link rel="shortcut icon" href="public/imgs/logos/favicon.png" />
 
 <!-- bootstrap -->
@@ -52,13 +51,5 @@ include ROOT_PATH.'application/configs/configDb.php';
 include ROOT_PATH.'libs/smarty-3.1.30/libs/Smarty.class.php';
 
 Factory::setAction()->run();
-
-
-
-
-
-
-
-
 
 ?>

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 10:22:34
-  from "D:\php\wamp\www\php\BaiJiaHao\application\views\home\footer.html" */
+/* Smarty version 3.1.30, created on 2017-07-31 20:19:00
+  from "D:\php\wamp\www\BaiJiaHao\application\views\home\footer.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5977fceae6aa83_95133245',
+  'unifunc' => 'content_597f2034278760_34130488',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '977ae9336c7b13f6a4bc0ed82ca9579bb6eefc0d' => 
+    '8d59040a0c2b0014f774ad47d00aa6460929da09' => 
     array (
-      0 => 'D:\\php\\wamp\\www\\php\\BaiJiaHao\\application\\views\\home\\footer.html',
+      0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\home\\footer.html',
       1 => 1501035752,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5977fceae6aa83_95133245 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f2034278760_34130488 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">

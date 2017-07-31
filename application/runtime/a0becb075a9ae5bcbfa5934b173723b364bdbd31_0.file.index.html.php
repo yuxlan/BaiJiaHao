@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 15:23:55
-  from "D:\php\wamp\www\php\BaiJiaHao\application\views\home\index.html" */
+/* Smarty version 3.1.30, created on 2017-07-31 20:19:00
+  from "D:\php\wamp\www\BaiJiaHao\application\views\home\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979950b2caaf2_60317089',
+  'unifunc' => 'content_597f20341fb745_30786970',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e10a0fa13ce506a5f6c07cf7848df573c4059dbf' => 
+    'a0becb075a9ae5bcbfa5934b173723b364bdbd31' => 
     array (
-      0 => 'D:\\php\\wamp\\www\\php\\BaiJiaHao\\application\\views\\home\\index.html',
-      1 => 1501140089,
+      0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\home\\index.html',
+      1 => 1501472842,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/footer.html' => 1,
   ),
 ),false)) {
-function content_5979950b2caaf2_60317089 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f20341fb745_30786970 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +57,8 @@ function content_5979950b2caaf2_60317089 (Smarty_Internal_Template $_smarty_tpl)
 				<div class="container">
 					<div class="row">
 
+
+
 						<!-- 轮播图 -->
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
@@ -64,34 +66,53 @@ function content_5979950b2caaf2_60317089 (Smarty_Internal_Template $_smarty_tpl)
 
 								<!-- 轮播游标 -->
 								<ol class="carousel-indicators">
-									<li data-target = "#myLb" data-slide-to = "0" class="active"></li>
-									<li data-target = "#myLb" data-slide-to = "1"></li>
-									<li data-target = "#myLb" data-slide-to = "2"></li>
-									<li data-target = "#myLb" data-slide-to = "3"></li>
+									<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['adData']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+									<?php if ($_smarty_tpl->tpl_vars['k']->value == 0) {?>
+									<li data-target = "#myLb" data-slide-to = "<?php echo $_smarty_tpl->tpl_vars['k']->value;?>
+" class="active"></li>
+									<?php } else { ?>
+									<li data-target = "#myLb" data-slide-to = "<?php echo $_smarty_tpl->tpl_vars['k']->value;?>
+"></li>
+									<?php }?>
+									<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
 								</ol>
 
 								<!-- 轮播内容 -->
 								<div class="carousel-inner">
-
+									<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['adData']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+									<?php if ($_smarty_tpl->tpl_vars['k']->value == 0) {?>
 									<div class="item active">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-1.jpg" alt=""/>
+										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+</p>
+										<img src="public/uploads/ad/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'];?>
+" alt=""/>
 									</div>
-
+									<?php } else { ?>
 									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-2.jpg" alt=""/>
+										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+</p>
+										<img src="public/uploads/ad/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'];?>
+" alt=""/>
 									</div>
-
-									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-3.jpg" alt=""/>
-									</div>
-
-									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;起底苦逼的充电桩行业：超43家入局，蒙眼狂奔3年！</p>
-										<img src="public/imgs/temps/carousel-4.jpg" alt=""/>
-									</div>
+									<?php }?>
+									<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
 								</div>
 
@@ -101,6 +122,8 @@ function content_5979950b2caaf2_60317089 (Smarty_Internal_Template $_smarty_tpl)
 
 							</div>
 						</div>
+
+
 
 						<!-- 侧边图片 -->
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

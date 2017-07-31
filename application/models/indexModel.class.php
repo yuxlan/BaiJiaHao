@@ -5,6 +5,10 @@ class indexModel extends Model {
     public function getNav(){
         return parent::get('nav','where state=1 order by sort asc','limit 0,6');
     }
+
+    public function getAd(){
+        return parent::get('ad');
+    }
 }
 
 

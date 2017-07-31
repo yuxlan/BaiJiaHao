@@ -6,6 +6,7 @@ class navModel extends Model{
         return parent::get('nav','order by sort asc',$limit);
     }
 
+//    获取总的导航条数
     public function getAll(){
         return parent::total('nav');
     }

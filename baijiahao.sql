@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-07-28 11:21:18
+-- Generation Time: 2017-07-31 14:28:36
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -35,14 +35,16 @@ CREATE TABLE IF NOT EXISTS `ad` (
   `state` int(1) NOT NULL COMMENT '状态',
   `date` datetime NOT NULL COMMENT '时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `ad`
 --
 
 INSERT INTO `ad` (`id`, `title`, `link`, `pic`, `decs`, `state`, `date`) VALUES
-(1, 'ad', 'adad', '2017072811151926.jpg', 'adadadadadad', 1, '2017-07-28 11:15:19');
+(1, '人工智能是杨元庆的远景 联想请别被澳洲抛弃', 'https://baijia.baidu.com/s?id=1574399133415165&wfr=pc&fr=idx_lst', '2017073111324410.jpg', '人工智能是杨元庆的远景 联想请别被澳洲抛弃', 1, '2017-07-31 11:32:44'),
+(2, '我们的国产电影，已沦落到只有下跪才能崛起的境地了？', 'https://baijia.baidu.com/s?id=1574397465616866&wfr=pc&fr=idx_lst', '2017073111334570.jpg', '我们的国产电影，已沦落到只有下跪才能崛起的境地了？', 1, '2017-07-31 11:33:45'),
+(3, '华盛顿邮报：亚马逊太大了吗？', 'https://baijia.baidu.com/s?id=1574398074493786&wfr=pc&fr=idx_lst', '2017073111341424.jpg', '华盛顿邮报：亚马逊太大了吗？', 1, '2017-07-31 11:34:14');
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,6 @@ CREATE TABLE IF NOT EXISTS `article` (
   `title` varchar(150) NOT NULL COMMENT '文章标题',
   `nid` int(11) NOT NULL COMMENT '文章类型对应的导航ID',
   `author` varchar(30) NOT NULL COMMENT '作者',
-  `apic` varchar(150) NOT NULL COMMENT '作者头像',
   `lead` varchar(300) NOT NULL COMMENT '作者导语简介',
   `pic` varchar(150) NOT NULL COMMENT '文章配图',
   `source` varchar(50) NOT NULL COMMENT '文章来源',
@@ -117,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `user`, `pwd`, `last_ip`, `last_time`, `login_num`, `level_id`, `date`) VALUES
-(1, 'admin', '123456', '', '2017-07-28 16:50:00', 18, 0, '2017-07-27 17:39:43');
+(1, 'admin', '123456', '', '2017-07-31 10:27:51', 20, 0, '2017-07-27 17:39:43');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
