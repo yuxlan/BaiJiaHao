@@ -19,6 +19,7 @@ class articleModel extends Model{
         return parent::get('article','where id='.$id);
     }
 
+    //    获取一条导航数据
     public function getOne($id){
         return parent::get('nav','where id='.$id);
     }

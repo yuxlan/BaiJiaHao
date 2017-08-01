@@ -201,6 +201,7 @@ a{
 /* 自加样式  */
 .media-part{
 	margin-top: 2%;
+	margin-bottom: 35px;
 }
 
 .media{
@@ -241,6 +242,11 @@ a{
 .media-author-part{
 	margin-left: 30%;
 	margin-top: -23%;
+}
+
+.media-author-part-1{
+	margin-left: 30%;
+	margin-top: -18%;
 }
 
 .media-author-part-a1,
@@ -302,9 +308,7 @@ a{
 
 .main-part-last-li{
 	background: #FFFFFF;
-	text-align: center;
-	height: 45px;
-	margin: 3% 0 3% 0;
+	margin: 0 0 3% 0;
 }
 
 .main-part-last-li h4{

@@ -5,7 +5,7 @@ final class Tool{
     //一个滚动条方法
     public static function progress($_msg,$_url,$_flag,$_t){
         $css="<style type='text/css'>";
-        $css.=".progressBox{ width: 30%; height: 30px; float:right; margin:10px 20px 0 0; z-index:100px; }";
+        $css.=".progressBox{ width: 30%; height: 30px; float:right; margin:10px 20px 0 0; z-index:100px;display: inline-block; }";
         $css.="</style>";
         $str="<div class='progressBox'><div class='progress progress-striped'><div class='progress-bar' 
                 data-msg='$_msg' data-url='$_url' 

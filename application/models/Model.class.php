@@ -24,8 +24,8 @@ class Model{
     }
 
 //    获取数据总数
-    protected function total($_table){
-        $sql = "select * from $_table";
+    protected function total($_table,$where=null){
+        $sql = "select * from ".$_table." ".$where;
 //        rowCount()  获取总数
         $result = $this->db->query($sql)->rowCount();
         return $result;
