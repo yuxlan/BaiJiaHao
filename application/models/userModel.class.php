@@ -9,6 +9,11 @@ class userModel extends Model{
     public function updateUser($array){
         return parent::update('user',$array);
     }
+
+//    用户注册
+    public function registerUser($array){
+        return parent::add('user',$array);
+    }
 }
 
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 20:19:00
+/* Smarty version 3.1.30, created on 2017-08-01 16:40:51
   from "D:\php\wamp\www\BaiJiaHao\application\views\home\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f20341fb745_30786970',
+  'unifunc' => 'content_59803e93e0b5c4_51655928',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a0becb075a9ae5bcbfa5934b173723b364bdbd31' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\home\\index.html',
-      1 => 1501472842,
+      1 => 1501576848,
       2 => 'file',
     ),
   ),
@@ -23,15 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/footer.html' => 1,
   ),
 ),false)) {
-function content_597f20341fb745_30786970 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59803e93e0b5c4_51655928 (Smarty_Internal_Template $_smarty_tpl) {
+if (!is_callable('smarty_modifier_truncate')) require_once 'D:\\php\\wamp\\www\\BaiJiaHao\\libs\\smarty-3.1.30\\libs\\plugins\\modifier.truncate.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	   
+
+		<?php if ($_smarty_tpl->tpl_vars['index']->value) {?>
 		<title>首页-百家号</title>
+		<?php }?>
+
+		<?php if ($_smarty_tpl->tpl_vars['page']->value) {?>
+		<title>频道列表-百家号</title>
+		<?php }?>
 	
 		<!-- 首页自定义样式 -->
 		<link rel="stylesheet" href="public/css/style.css" type="text/css" />
@@ -166,24 +173,78 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 							<ul class="media-list">
 
-								<li class="media">
+								<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['article']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+									<?php if (count($_smarty_tpl->tpl_vars['v']->value['pic']) == 2) {?>
+										<li class="media">
 									<div class="media-div">
 										<div class="media-body">
-											<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
+
+											<div class="media-img row">
+												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+													<img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'][1];?>
+" style="width: 179px; height: 120px;" />
+												</div>
+
+												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
+													<a class="media-heading" href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20,'……');?>
+</a>
+													<div class="media-text">
+														<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['v']->value['author'];?>
+</a>
+														<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
+</p>
+														<p>阅读（<?php echo $_smarty_tpl->tpl_vars['v']->value['pageview'];?>
+）</p>
+														<p>
+															<i class="fa fa-share-alt"></i>
+															&nbsp;分享&nbsp;
+															<i class="fa fa-qq fa-style"></i>
+															<i class="fa fa-weibo fa-style"></i>
+															<i class="fa fa-weixin fa-style"></i>
+														</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+									<hr>
+
+								</li>
+									<?php } else { ?>
+										<li class="media">
+									<div class="media-div">
+										<div class="media-body">
+											<a class="media-heading" href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20,'……');?>
+</a>
 
 											<div class="media-img row">
 
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
+												<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 1;
+if ($_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['v']->value['pic'])) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['v']->value['pic']); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
 
 												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
+													<img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'][$_smarty_tpl->tpl_vars['i']->value];?>
+" style="width: 179px; height: 120px;" />
 												</div>
 
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
+												<?php }
+}
+?>
+
 
 												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 													<img src="public/imgs/temps/news-1.jpg" />
@@ -193,9 +254,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 											<div class="media-text">
 
-												<a href="javascript:;">华商韬略</a>
-												<p>10:35</p>
-												<p>阅读（616）</p>
+												<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['v']->value['author'];?>
+</a>
+												<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
+</p>
+												<p>阅读（<?php echo $_smarty_tpl->tpl_vars['v']->value['pageview'];?>
+）</p>
 
 												<p>
 													<i class="fa fa-share-alt"></i>
@@ -212,77 +276,20 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 									<hr>
 
 								</li>
+									<?php }?>
+								<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
-								<li class="media">
-									<div class="media-div">
-										<div class="media-body">
 
-											<div class="media-img row">
-												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-													<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
-													<div class="media-text">
-														<a href="javascript:;">华商韬略</a>
-														<p>10:35</p>
-														<p>阅读（616）</p>
-														<p>
-															<i class="fa fa-share-alt"></i>
-															&nbsp;分享&nbsp;
-															<i class="fa fa-qq fa-style"></i>
-															<i class="fa fa-weibo fa-style"></i>
-															<i class="fa fa-weixin fa-style"></i>
-														</p>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-
-									<hr>
+								<?php if (count($_smarty_tpl->tpl_vars['article']->value) > 10) {?>
+								<li class="main-part-last-li text-center">
+									<?php echo $_smarty_tpl->tpl_vars['allPage']->value;?>
 
 								</li>
-
-								<li class="media">
-									<div class="media-div">
-										<div class="media-body">
-
-											<div class="media-img row">
-												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-													<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
-													<div class="media-text">
-														<a href="javascript:;">华商韬略</a>
-														<p>10:35</p>
-														<p>阅读（616）</p>
-														<p>
-															<i class="fa fa-share-alt"></i>
-															&nbsp;分享&nbsp;
-															<i class="fa fa-qq fa-style"></i>
-															<i class="fa fa-weibo fa-style"></i>
-															<i class="fa fa-weixin fa-style"></i>
-														</p>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-
-									<hr>
-
-								</li>
-
-
-								<li class="main-part-last-li">
-									<h4>查看更多</h4>
-								</li>
+								<?php }?>
 
 							</ul>
 						</div>
@@ -292,82 +299,123 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 								<li class="media">
 									<div class="media-body">
-										<h4 class="meida-side-heading media-heading">文章排行</h4>
+										<h4 class="meida-side-heading media-heading">热点文章</h4>
 									</div>
 								</li>
 
-								<li class="media">
-									<ul>
-										<a href="javascript:;"><li class="active media-side-date" id="dayclick">日榜</li></a>
-										<a href="javascript:;"><li id="weekclick">周榜</li></a>
-									</ul>
+								<!--<li class="media">-->
+									<!--<ul>-->
+										<!--<a href="javascript:;"><li class="active media-side-date" id="dayclick">日榜</li></a>-->
+										<!--<a href="javascript:;"><li id="weekclick">周榜</li></a>-->
+									<!--</ul>-->
+								<!--</li>-->
+
+								<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleByView']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+								<?php if ($_smarty_tpl->tpl_vars['k']->value == 0) {?>
+								<li class="media-side-li-3 media">
+									<div class="media-body">
+										<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+										<h4 class="media-heading">
+											<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],28,'……');?>
+</a>
+										</h4>
+									</div>
 								</li>
+								<?php } else { ?>
+								<li class="media-side-ul-li media">
+									<div class="media-body">
+										<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+										<h4 class="media-heading">
+											<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],11,'……');?>
+</a>
+										</h4>
+										<a class="media-side-author" href="javascript:;"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['author'],6);?>
+</a>
+									</div>
+								</li>
+								<?php }?>
+								<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
-								<div id="day">
 
-									<li class="media-side-li-3 media">
-										<div class="media-body">
-											<p>1</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">只为圈地 共享单车竞争惨烈 ​微博传出疑似ofo运维人员被…</a>
-											</h4>
-										</div>
-									</li>
+								<!--<div id="day">-->
 
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>2</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
+									<!--<li class="media-side-li-3 media">-->
+										<!--<div class="media-body">-->
+											<!--<p>1</p>-->
+											<!--<h4 class="media-heading">-->
+												<!--<a href="javascript:;">只为圈地 共享单车竞争惨烈 ​微博传出疑似ofo运维人员被…</a>-->
+											<!--</h4>-->
+										<!--</div>-->
+									<!--</li>-->
 
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>3</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
+									<!--<li class="media-side-ul-li media">-->
+										<!--<div class="media-body">-->
+											<!--<p>2</p>-->
+											<!--<h4 class="media-heading">-->
+												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
+											<!--</h4>-->
+											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
+										<!--</div>-->
+									<!--</li>-->
 
-								</div>
+									<!--<li class="media-side-ul-li media">-->
+										<!--<div class="media-body">-->
+											<!--<p>3</p>-->
+											<!--<h4 class="media-heading">-->
+												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
+											<!--</h4>-->
+											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
+										<!--</div>-->
+									<!--</li>-->
 
-								<div id="week">
+								<!--</div>-->
 
-									<li class="media-side-li-3 media">
-										<div class="media-body">
-											<p>1</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">自动驾驶汽车为何加装多种传感器？一张图给你答案</a>
-											</h4>
-										</div>
-									</li>
+								<!--<div id="week">-->
 
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>2</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
+									<!--<li class="media-side-li-3 media">-->
+										<!--<div class="media-body">-->
+											<!--<p>1</p>-->
+											<!--<h4 class="media-heading">-->
+												<!--<a href="javascript:;">自动驾驶汽车为何加装多种传感器？一张图给你答案</a>-->
+											<!--</h4>-->
+										<!--</div>-->
+									<!--</li>-->
 
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>3</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
+									<!--<li class="media-side-ul-li media">-->
+										<!--<div class="media-body">-->
+											<!--<p>2</p>-->
+											<!--<h4 class="media-heading">-->
+												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
+											<!--</h4>-->
+											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
+										<!--</div>-->
+									<!--</li>-->
 
-								</div>
+									<!--<li class="media-side-ul-li media">-->
+										<!--<div class="media-body">-->
+											<!--<p>3</p>-->
+											<!--<h4 class="media-heading">-->
+												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
+											<!--</h4>-->
+											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
+										<!--</div>-->
+									<!--</li>-->
+
+								<!--</div>-->
 
 							</ul>
 						</div>
@@ -389,116 +437,34 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 							<ul class="media-list">
 
-								<li class="media">
-									<div class="media-div">
-										<div class="media-body">
-											<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
-
-											<div class="media-img row">
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-											</div>
-
-											<div class="media-text">
-
-												<a href="javascript:;">华商韬略</a>
-												<p>10:35</p>
-												<p>阅读（616）</p>
-
-												<p>
-													<i class="fa fa-share-alt"></i>
-													&nbsp;分享&nbsp;
-													<i class="fa fa-qq fa-style"></i>
-													<i class="fa fa-weibo fa-style"></i>
-													<i class="fa fa-weixin fa-style"></i>
-												</p>
-
-											</div>
-										</div>
-									</div>
-
-									<hr>
-
-								</li>
-
-
-								<li class="media">
-									<div class="media-div">
-										<div class="media-body">
-											<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
-
-											<div class="media-img row">
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-											</div>
-
-											<div class="media-text">
-
-												<a href="javascript:;">华商韬略</a>
-												<p>10:35</p>
-												<p>阅读（616）</p>
-
-												<p>
-													<i class="fa fa-share-alt"></i>
-													&nbsp;分享&nbsp;
-													<i class="fa fa-qq fa-style"></i>
-													<i class="fa fa-weibo fa-style"></i>
-													<i class="fa fa-weixin fa-style"></i>
-												</p>
-
-											</div>
-										</div>
-									</div>
-
-									<hr>
-
-								</li>
-
+								<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleByType']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+								<?php if (count($_smarty_tpl->tpl_vars['v']->value['pic']) == 2) {?>
 								<li class="media">
 									<div class="media-div">
 										<div class="media-body">
 
 											<div class="media-img row">
 												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-													<img src="public/imgs/temps/news-1.jpg" />
+													<img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'][1];?>
+" style="width: 179px; height: 120px;" />
 												</div>
 
 												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-													<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
+													<a class="media-heading" href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20,'……');?>
+</a>
 													<div class="media-text">
-														<a href="javascript:;">华商韬略</a>
-														<p>10:35</p>
-														<p>阅读（616）</p>
+														<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['v']->value['author'];?>
+</a>
+														<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
+</p>
+														<p>阅读（<?php echo $_smarty_tpl->tpl_vars['v']->value['pageview'];?>
+）</p>
 														<p>
 															<i class="fa fa-share-alt"></i>
 															&nbsp;分享&nbsp;
@@ -516,26 +482,33 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 									<hr>
 
 								</li>
-
-
+								<?php } else { ?>
 								<li class="media">
 									<div class="media-div">
 										<div class="media-body">
-											<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
+											<a class="media-heading" href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20,'……');?>
+</a>
 
 											<div class="media-img row">
 
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
+												<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);
+$_smarty_tpl->tpl_vars['i']->value = 1;
+if ($_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['v']->value['pic'])) {
+for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_vars['v']->value['pic']); $_smarty_tpl->tpl_vars['i']->value++) {
+?>
 
 												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
+													<img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'][$_smarty_tpl->tpl_vars['i']->value];?>
+" style="width: 179px; height: 120px;" />
 												</div>
 
-												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
+												<?php }
+}
+?>
+
 
 												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 													<img src="public/imgs/temps/news-1.jpg" />
@@ -545,9 +518,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 											<div class="media-text">
 
-												<a href="javascript:;">华商韬略</a>
-												<p>10:35</p>
-												<p>阅读（616）</p>
+												<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['v']->value['author'];?>
+</a>
+												<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
+</p>
+												<p>阅读（<?php echo $_smarty_tpl->tpl_vars['v']->value['pageview'];?>
+）</p>
 
 												<p>
 													<i class="fa fa-share-alt"></i>
@@ -564,44 +540,20 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 									<hr>
 
 								</li>
+								<?php }?>
+								<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
-								<li class="media">
-									<div class="media-div">
-										<div class="media-body">
 
-											<div class="media-img row">
-												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-													<img src="public/imgs/temps/news-1.jpg" />
-												</div>
-
-												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-													<a class="media-heading" href="javascript:;">华大基因要冲击17个涨停，人人都能长命百岁？</a>
-													<div class="media-text">
-														<a href="javascript:;">华商韬略</a>
-														<p>10:35</p>
-														<p>阅读（616）</p>
-														<p>
-															<i class="fa fa-share-alt"></i>
-															&nbsp;分享&nbsp;
-															<i class="fa fa-qq fa-style"></i>
-															<i class="fa fa-weibo fa-style"></i>
-															<i class="fa fa-weixin fa-style"></i>
-														</p>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-
-									<hr>
+								<?php if (count($_smarty_tpl->tpl_vars['articleByType']->value) > 10) {?>
+								<li class="main-part-last-li text-center">
+									<?php echo $_smarty_tpl->tpl_vars['allPage']->value;?>
 
 								</li>
-
-
-								<li class="main-part-last-li">
-									<h4>查看更多</h4>
-								</li>
+								<?php }?>
 
 							</ul>
 						</div>
@@ -616,47 +568,34 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 									</div>
 								</li>
 
+								<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleByTypeView']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
 								<li class="media">
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-											<img src="public/imgs/temps/header.jpg">
+											<img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['v']->value['pic'][0];?>
+" class="img-circle" style="height: 99px;width: 99px; padding: 12px;">
 										</div>
 
 										<div class="media-author-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" >翔snowman </a>
-											<a href="javascript:;" class="media-author-part-a2" >绝对有料的企业级IT报道</a>
-											<a href="javascript:;" class="media-author-part-a3" >盯紧HIL中国概念，收益赛过A股牛市</a>
+											<a href="javascript:;" class="media-author-part-a1" ><?php echo $_smarty_tpl->tpl_vars['v']->value['author'];?>
+ </a>
+											<a href="javascript:;" class="media-author-part-a2" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['lead'],10);?>
+</a>
+											<a href="javascript:;" class="media-author-part-a3" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20);?>
+</a>
 										</div>
 									</div>
 								</li>
+								<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
-								<li class="media">
-									<div class="row">
-										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-											<img src="public/imgs/temps/header.jpg">
-										</div>
-
-										<div class="media-author-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" >翔snowman </a>
-											<a href="javascript:;" class="media-author-part-a2" >绝对有料的企业级IT报道</a>
-											<a href="javascript:;" class="media-author-part-a3" >盯紧HIL中国概念，收益赛过A股牛市</a>
-										</div>
-									</div>
-								</li>
-
-								<li class="media">
-									<div class="row">
-										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-											<img src="public/imgs/temps/header.jpg">
-										</div>
-
-										<div class="media-author-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" >翔snowman </a>
-											<a href="javascript:;" class="media-author-part-a2" >绝对有料的企业级IT报道</a>
-											<a href="javascript:;" class="media-author-part-a3" >盯紧HIL中国概念，收益赛过A股牛市</a>
-										</div>
-									</div>
-								</li>
 
 							</ul>
 
@@ -665,82 +604,50 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 								<li class="media">
 									<div class="media-body">
-										<h4 class="meida-side-heading media-heading">文章排行</h4>
+										<h4 class="meida-side-heading media-heading">热点文章</h4>
 									</div>
 								</li>
 
-								<li class="media">
-									<ul>
-										<a href="javascript:;"><li class="active media-side-date" id="dayclick">日榜</li></a>
-										<a href="javascript:;"><li id="weekclick">周榜</li></a>
-									</ul>
+								<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleByTypeView']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+								<?php if ($_smarty_tpl->tpl_vars['k']->value == 0) {?>
+								<li class="media-side-li-3 media">
+									<div class="media-body">
+										<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+										<h4 class="media-heading">
+											<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],28,'……');?>
+</a>
+										</h4>
+									</div>
 								</li>
+								<?php } else { ?>
+								<li class="media-side-ul-li media">
+									<div class="media-body">
+										<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+										<h4 class="media-heading">
+											<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],11,'……');?>
+</a>
+										</h4>
+										<a class="media-side-author" href="javascript:;"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['author'],6);?>
+</a>
+									</div>
+								</li>
+								<?php }?>
+								<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
 
-								<div id="day">
-
-									<li class="media-side-li-3 media">
-										<div class="media-body">
-											<p>1</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">只为圈地 共享单车竞争惨烈 ​微博传出疑似ofo运维人员被…</a>
-											</h4>
-										</div>
-									</li>
-
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>2</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
-
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>3</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
-
-								</div>
-
-								<div id="week">
-
-									<li class="media-side-li-3 media">
-										<div class="media-body">
-											<p>1</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">自动驾驶汽车为何加装多种传感器？一张图给你答案</a>
-											</h4>
-										</div>
-									</li>
-
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>2</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
-
-									<li class="media-side-ul-li media">
-										<div class="media-body">
-											<p>3</p>
-											<h4 class="media-heading">
-												<a href="javascript:;">人工智能最强年中盘点：…</a>
-											</h4>
-											<a class="media-side-author" href="javascript:;">智东西</a>
-										</div>
-									</li>
-
-								</div>
 
 							</ul>
 
@@ -750,6 +657,164 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 				</div>
 			</section>
 
+		<?php }?>
+
+		<!-- 文章详情 -->
+		<?php if ($_smarty_tpl->tpl_vars['one']->value) {?>
+		<section class="media-part">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+						<ul class="media-list">
+
+							<li class="media">
+								<div class="media-div">
+									<div class="media-body">
+										<h3 style="margin-bottom: 30px"><?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['title'];?>
+</h3>
+										<table style="width: 50%; text-align: center;margin-bottom: 30px">
+											<tr>
+												<td style="border-right: 1px solid #000000;"><?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['author'];?>
+</td>
+												<td style="color: #9d9d9d;border-right: 1px solid #000000;"><?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['date'];?>
+</td>
+												<td style="color: #9d9d9d">阅读：<?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['pageview'];?>
+</td>
+											</tr>
+										</table>
+										<hr style="margin-bottom: 30px">
+										<div style="margin-bottom: 60px;"><?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['content'];?>
+</div>
+										<div style="margin-left: 25px;margin-bottom: 30px;">
+											<p style="font-size: 18px;">版权声明</p>
+											<br>
+											<p>本文仅代表作者观点，不代表百度立场。</p>
+											<p style="margin-bottom: 60px;">本文系作者授权百度百家发表，未经许可，不得转载。</p>
+											<p style="font-size: 18px; display: inline-block;">阅读量：<a style="color: #ff0000"><?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['pageview'];?>
+</a></p>
+											<table style="width:14%;text-align: center;float:right;display: inline-block;font-size: 18px;color: #9d9d9d">
+												<tr>
+													<td width="40%"><i class="fa fa-thumbs-o-up"></i></td>
+													<td width="40%">|</td>
+													<td width="40%"><i class="fa fa-thumbs-o-down"></i></td>
+												</tr>
+											</table>
+										</div>
+										<hr style="margin-bottom: 30px">
+										<div style="margin-left: 25px;margin-bottom: 60px;">
+											&nbsp;<p style="font-size: 18px;">分享</p>
+											<i class="fa fa-qq" style="font-size: 24px; color: #00b7ee; border: 1px solid #00b7ee;border-radius: 50%;padding: 10px;"></i>
+											<i class="fa fa-weibo" style="font-size: 24px; color: #ff0000; border: 1px solid #ff0000;border-radius: 50%;padding: 10px;"></i>
+											<i class="fa fa-weixin" style="font-size: 24px; color: #228b22; border: 1px solid #228b22;border-radius: 50%;padding: 10px;"></i>
+										</div>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+						<ul class="media-side media-list">
+							<li class="media">
+								<div class="media-body">
+									<div class="row" style="background: #fbfbfb;border-bottom: 1px solid #F2F2F2;">
+										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+											<img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['pic'][0];?>
+" class="img-circle" style="height: 90px;width: 90px; padding: 12px;">
+										</div>
+
+										<div class="media-author-part-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+											<a href="javascript:;" class="media-author-part-a1" ><?php echo $_smarty_tpl->tpl_vars['oneArticle']->value[0]['author'];?>
+ </a>
+											<a href="javascript:;" class="media-author-part-a2" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['oneArticle']->value[0]['lead'],10);?>
+</a>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['authorArticle']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+							<li class="media-side-ul-li media">
+								<div class="media-body">
+									<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+									<h4 class="media-heading">
+										<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],11,'……');?>
+</a>
+									</h4>
+								</div>
+							</li>
+							<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+						</ul>
+
+						<ul class="media-side media-list">
+
+							<li class="media">
+								<div class="media-body">
+									<h4 class="meida-side-heading media-heading">热点文章</h4>
+								</div>
+							</li>
+
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleByTypeView']->value, 'v', false, 'k');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
+?>
+							<?php if ($_smarty_tpl->tpl_vars['k']->value == 0) {?>
+							<li class="media-side-li-3 media">
+								<div class="media-body">
+									<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+									<h4 class="media-heading">
+										<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],28,'……');?>
+</a>
+									</h4>
+								</div>
+							</li>
+							<?php } else { ?>
+							<li class="media-side-ul-li media">
+								<div class="media-body">
+									<p><?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</p>
+									<h4 class="media-heading">
+										<a href="?c=index&p=one&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+&nid=<?php echo $_smarty_tpl->tpl_vars['v']->value['nid'];?>
+"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],11,'……');?>
+</a>
+									</h4>
+									<a class="media-side-author" href="javascript:;"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['author'],6);?>
+</a>
+								</div>
+							</li>
+							<?php }?>
+							<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</section>
 		<?php }?>
 
 

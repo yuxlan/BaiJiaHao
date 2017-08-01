@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 20:24:15
+/* Smarty version 3.1.30, created on 2017-08-01 16:38:02
   from "D:\php\wamp\www\BaiJiaHao\application\views\admin\article.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f216f8b25e8_45463640',
+  'unifunc' => 'content_59803dea1b06b2_51577210',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bc2d5104af2902ad9af50b17f3ac5a08c068629' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\admin\\article.html',
-      1 => 1501503847,
+      1 => 1501576679,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597f216f8b25e8_45463640 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59803dea1b06b2_51577210 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once 'D:\\php\\wamp\\www\\BaiJiaHao\\libs\\smarty-3.1.30\\libs\\plugins\\modifier.truncate.php';
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ if (!is_callable('smarty_modifier_truncate')) require_once 'D:\\php\\wamp\\www\\
     <body style="overflow-x: hidden;">
 
         <?php if ($_smarty_tpl->tpl_vars['show']->value) {?>
-        <div class="row">
+        <div class="row" style="display: inline-block; margin-bottom: 30px;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>
@@ -46,14 +46,12 @@ if (!is_callable('smarty_modifier_truncate')) require_once 'D:\\php\\wamp\\www\\
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post">
-                    <table class="table table-bordered" style="width: 98%; margin: auto;">
+                    <table class="table table-bordered" style="width: 90%; margin: auto;">
                         <tr>
                             <th>文章标题</th>
                             <th>文章类型</th>
                             <th>文章作者</th>
-                            <th>作者头像</th>
                             <th>作者导语</th>
-                            <th>文章配图</th>
                             <th>文章来源</th>
                             <th>文章内容</th>
                             <th>添加时间</th>
@@ -70,21 +68,17 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['value']->value) {
 ?>
                         <tr>
-                            <td><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['value']->value['title'],10);?>
+                            <td><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['value']->value['title'],6);?>
 </td>
-                            <td><?php echo $_smarty_tpl->tpl_vars['value']->value['nid'];?>
+                            <td><?php echo $_smarty_tpl->tpl_vars['adType']->value[$_smarty_tpl->tpl_vars['key']->value];?>
 </td>
                             <td><?php echo $_smarty_tpl->tpl_vars['value']->value['author'];?>
 </td>
-                            <td><img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['value']->value['pic'];?>
-" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
-                            <td><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['value']->value['lead'],10);?>
+                            <td><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['value']->value['lead'],6);?>
 </td>
-                            <td><img src="public/uploads/article/<?php echo $_smarty_tpl->tpl_vars['value']->value['pic'];?>
-" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
                             <td><?php echo $_smarty_tpl->tpl_vars['value']->value['source'];?>
 </td>
-                            <td><?php echo smarty_modifier_truncate(strip_tags($_smarty_tpl->tpl_vars['value']->value['content']),20,'……');?>
+                            <td><?php echo smarty_modifier_truncate(strip_tags($_smarty_tpl->tpl_vars['value']->value['content']),10);?>
 </td>
                             <td><?php echo $_smarty_tpl->tpl_vars['value']->value['date'];?>
 </td>
@@ -134,7 +128,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         <?php }?>
 
         <?php if ($_smarty_tpl->tpl_vars['add']->value) {?>
-        <div class="row">
+        <div class="row" style="display: inline-block;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>
@@ -289,7 +283,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         <?php }?>
 
         <?php if ($_smarty_tpl->tpl_vars['update']->value) {?>
-        <div class="row">
+        <div class="row" style="display: inline-block; margin-bottom: 30px;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>

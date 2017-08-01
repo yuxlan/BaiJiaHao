@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 20:22:29
+/* Smarty version 3.1.30, created on 2017-08-01 20:28:55
   from "D:\php\wamp\www\BaiJiaHao\application\views\admin\admin.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f2105cadb61_76428486',
+  'unifunc' => 'content_59807407bb8538_23296057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9633eb48025cad3ca880cc53273d38380b50b8a' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\admin\\admin.html',
-      1 => 1501234617,
+      1 => 1501590357,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597f2105cadb61_76428486 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59807407bb8538_23296057 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,7 @@ function content_597f2105cadb61_76428486 (Smarty_Internal_Template $_smarty_tpl)
                         <h4 class="panel-title">
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                                aria-expanded="false" aria-controls="collapseOne">
-                                导航设置
+                                导航管理
                             </a>
                         </h4>
                     </div>
@@ -94,7 +94,7 @@ function content_597f2105cadb61_76428486 (Smarty_Internal_Template $_smarty_tpl)
                         <h4 class="panel-title">
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
                                aria-expanded="false" aria-controls="collapseTwo">
-                                广告设置
+                                广告管理
                             </a>
                         </h4>
                     </div>
@@ -114,7 +114,7 @@ function content_597f2105cadb61_76428486 (Smarty_Internal_Template $_smarty_tpl)
                         <h4 class="panel-title">
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
                                aria-expanded="false" aria-controls="collapseThree">
-                                文章设置
+                                文章管理
                             </a>
                         </h4>
                     </div>
@@ -124,6 +124,25 @@ function content_597f2105cadb61_76428486 (Smarty_Internal_Template $_smarty_tpl)
                             <ul class="list-unstyled">
                                 <li><a href="?c=article&action=show" target="main">管理文章</a></li>
                                 <li><a href="?c=article&action=add" target="main">添加文章</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--用户-->
+                <div class="panel">
+                    <div class="panel-heading" role="tab" id="headingfour">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefour"
+                               aria-expanded="false" aria-controls="collapsefour">
+                                用户管理
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapsefour" class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="headingfour">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="?c=uManage&action=show" target="main">管理用户</a></li>
                             </ul>
                         </div>
                     </div>

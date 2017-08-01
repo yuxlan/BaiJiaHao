@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 20:19:00
+/* Smarty version 3.1.30, created on 2017-08-01 16:52:43
   from "D:\php\wamp\www\BaiJiaHao\application\views\home\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f2034261055_37946173',
+  'unifunc' => 'content_5980415b115af2_08535761',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3680094ee036fd7d661fce41e96160d20c1fd0e0' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\home\\login.html',
-      1 => 1501139094,
+      1 => 1501577559,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597f2034261055_37946173 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5980415b115af2_08535761 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,13 +45,13 @@ function content_597f2034261055_37946173 (Smarty_Internal_Template $_smarty_tpl)
             <div class="zhanghao-login">
                 <div class="modal-body">
                     <a href="javascript:;" class="modal-body-login-quikly"><img src="public/imgs/icons/phone.png" class="modal-logo-phone">&nbsp; 短信快捷登录</a>
-                    <form action="" method="" id="">
-                        <input type="text" class="form-control form-control-user"  value="" placeholder="     手机/邮箱/用户名" id="username" />
-                        <input type="password" class="form-control form-control-pwd" value="" placeholder="     密码" id="pwd" />
+                    <form action="?c=user&action=userlogin" method="post" id="">
+                        <input name="username" type="text" class="form-control form-control-user"  value="" placeholder="     手机/邮箱/用户名" id="username" />
+                        <input name="pwd" type="password" class="form-control form-control-pwd" value="" placeholder="     密码" id="pwd" />
                         <input type="checkbox" checked="checked" id="checked" />下次自动登录
                         <a href="javascript:;" class="modal-body-a">登录遇到问题</a>
-                        <input type="submit" class="form-control-button btn btn-primary" id="send" name="send" value="登录" />
-                        <a href="?m=register" class="modal-body-a" target="_blank">立即注册</a>
+                        <input name="send" type="submit" class="form-control-button btn btn-primary" id="send" value="登录" />
+                        <a href="?c=user&action=register" class="modal-body-a" target="_blank">立即注册</a>
                     </form>
                 </div>
                 <div class="modal-footer">

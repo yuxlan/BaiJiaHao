@@ -67,11 +67,7 @@ class articleAction extends Action{
             } else {
                 Tool::progress('请选择文章类型','?c=article&action=add',0,1);
             }
-//            var_dump($_POST);
-//            var_dump($_FILES);
         }
-//        var_dump($_POST);
-//        var_dump($_FILES);
     }
 
 //    显示文章
@@ -80,18 +76,18 @@ class articleAction extends Action{
 //        获取所有数据
         $_total = $this->model->totalArt();
 //        分页类
-        $page = new Page($_total,10);
+        $page = new Page($_total,6);
 //        获取数据
         $artData = $this->model->getArt($page->limit);
 
-//        $artNid = $this->model->getOne($v['nid']);
-////            var_dump($artNid);
-//        $this->smarty->assign('artNid',$artNid);
-
+        foreach ($artData as $k=>$v){
+            $artNid = $this->model->getOne($v['nid']);
+            $adType[]=$artNid[0]['name'];
+        }
+        $this->smarty->assign('adType',$adType);
 
 
         foreach ($artData as $k=>$v){
-//            var_dump($v['pic']);
             switch ($v['state']){
                 case 1:
                     $artData[$k]['state'] = "<span style='color: green;'>[显示]</span><a href='?c=article&action=state&flag=hide&id=".$v['id']."' style='color: red'>[隐藏]</a>";
@@ -140,16 +136,13 @@ class articleAction extends Action{
         if ($_POST['send']){
             $name = $oneArt[0]['pic'];
             $err = [];
-            for ($i = 0; $i < $_FILES; $i++) {
+            for ($i = 0; $i < count($_FILES); $i++) {
                 $upload = new UpLoads(array('path' => 'public/uploads/article', 'fileName' => 'articlePic' . $i));
                 if ($upload->upload()) {
                     $name[$i] = $upload->getName();
-                } else {
-                    $err[$i] = $upload->getErrorMsg();
                 }
             }
 //                判断是否错误
-                if (count($err) == 0){
                     $array = array(
                         'title'=>$_POST['articleName'],
                         'nid'=>$_POST['articleNid'],
@@ -167,9 +160,7 @@ class articleAction extends Action{
                     } else{
                         Tool::progress('修改失败','?c=article&action=add',0,1);
                     }
-                } else{
-                    Tool::progress(implode(';',$err),'?c=article&action=add',0,1);
-                }
+
     }
 }
 

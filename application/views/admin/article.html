@@ -8,7 +8,7 @@
     <body style="overflow-x: hidden;">
 
         {if $show}
-        <div class="row">
+        <div class="row" style="display: inline-block; margin-bottom: 30px;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>
@@ -21,14 +21,12 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post">
-                    <table class="table table-bordered" style="width: 98%; margin: auto;">
+                    <table class="table table-bordered" style="width: 90%; margin: auto;">
                         <tr>
                             <th>文章标题</th>
                             <th>文章类型</th>
                             <th>文章作者</th>
-                            <th>作者头像</th>
                             <th>作者导语</th>
-                            <th>文章配图</th>
                             <th>文章来源</th>
                             <th>文章内容</th>
                             <th>添加时间</th>
@@ -41,14 +39,12 @@
                         </tr>
                         {foreach $artData as $key=>$value}
                         <tr>
-                            <td>{$value['title']|truncate:10}</td>
-                            <td>{$value['nid']}</td>
+                            <td>{$value['title']|truncate:6}</td>
+                            <td>{$adType[$key]}</td>
                             <td>{$value['author']}</td>
-                            <td><img src="public/uploads/article/{$value['pic']}" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
-                            <td>{$value['lead']|truncate:10}</td>
-                            <td><img src="public/uploads/article/{$value['pic']}" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
+                            <td>{$value['lead']|truncate:6}</td>
                             <td>{$value['source']}</td>
-                            <td>{$value['content']|strip_tags:false|truncate:20:'……'}</td>
+                            <td>{$value['content']|strip_tags:false|truncate:10}</td>
                             <td>{$value['date']}</td>
                             <td>{$value['state']}</td>
                             <td>
@@ -82,7 +78,7 @@
         {/if}
 
         {if $add}
-        <div class="row">
+        <div class="row" style="display: inline-block;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>
@@ -216,7 +212,7 @@
         {/if}
 
         {if $update}
-        <div class="row">
+        <div class="row" style="display: inline-block; margin-bottom: 30px;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>

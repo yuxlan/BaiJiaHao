@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 20:22:33
+/* Smarty version 3.1.30, created on 2017-08-01 16:38:46
   from "D:\php\wamp\www\BaiJiaHao\application\views\admin\nav.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f210952c9f1_10054425',
+  'unifunc' => 'content_59803e1685d919_10370089',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4194bd2a1c1b81cbe1c9e15c828c2b78cbf7991d' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJiaHao\\application\\views\\admin\\nav.html',
-      1 => 1501235642,
+      1 => 1501576719,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597f210952c9f1_10054425 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59803e1685d919_10370089 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ function content_597f210952c9f1_10054425 (Smarty_Internal_Template $_smarty_tpl)
     <body style="overflow-x: hidden;">
 
         <?php if ($_smarty_tpl->tpl_vars['show']->value) {?>
-            <div class="row">
+            <div class="row" style="display: inline-block; margin-bottom: 30px;">
                 <div class="col-md-12">
                     <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>
@@ -44,7 +44,7 @@ function content_597f210952c9f1_10054425 (Smarty_Internal_Template $_smarty_tpl)
             <div class="row">
                 <div class="col-md-12">
                     <form action="" method="post">
-                        <table class="table table-bordered" style="width: 98%; margin: auto;">
+                        <table class="table table-bordered" style="width: 90%; margin: auto;">
                             <tr>
                                 <th>导航名</th>
                                 <th>描述</th>
@@ -121,7 +121,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
         <?php if ($_smarty_tpl->tpl_vars['add']->value) {?>
 
-            <div class="row">
+            <div class="row" style="display: inline-block; margin-bottom: 30px;">
                 <div class="col-md-12">
                     <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>
@@ -134,7 +134,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
             <div class="row">
                 <div class="col-md-12">
                     <form action="" method="post" enctype="multipart/form-data">
-                        <table class="table table-bordered" style="width: 98%; margin: auto;">
+                        <table class="table table-bordered" style="width: 90%; margin: auto;">
                             <tr>
                                 <td class="text-center" width="120">导航名称</td>
                                 <td><input type="text" class="form-control" name="navName"></td>
@@ -157,7 +157,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
         <?php if ($_smarty_tpl->tpl_vars['update']->value) {?>
 
-            <div class="row">
+            <div class="row" style="display: inline-block; margin-bottom: 30px;">
                 <div class="col-md-12">
                     <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>

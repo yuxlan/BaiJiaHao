@@ -7,7 +7,7 @@
     <body style="overflow-x: hidden;">
 
         {if $add}
-            <div class="row">
+            <div class="row" style="display: inline-block; margin-bottom: 30px;">
                 <div class="col-md-12">
                     <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                         <li><a href="?c=admin">后台首页</a></li>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <form action="" method="post" enctype="multipart/form-data">
-                        <table class="table table-bordered" style="width: 98%; margin: auto;">
+                        <table class="table table-bordered" style="width: 90%; margin: auto;">
                             <tr>
                                 <td class="text-center" width="120">广告标题</td>
                                 <td><input type="text" class="form-control" name="adName"></td>
@@ -63,7 +63,7 @@
         {/if}
 
         {if $show}
-        <div class="row">
+        <div class="row" style="display: inline-block; margin-bottom: 30px;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post">
-                    <table class="table table-bordered" style="width: 98%; margin: auto;">
+                    <table class="table table-bordered" style="width: 90%; margin: auto;">
                         <tr>
                             <th>广告标题</th>
                             <th>广告链接</th>
@@ -92,10 +92,10 @@
                         </tr>
                         {foreach $adData as $key=>$value}
                         <tr>
-                            <td>{substr($value['title'],0,12)}……</td>
-                            <td>{substr($value['link'],0,12)}……</td>
+                            <td>{$value['title']|truncate:10}……</td>
+                            <td>{$value['link']|truncate:10}……</td>
                             <td><img src="public/uploads/ad/{$value['pic']}" style="width: 70px; height: 70px; line-height: 100px;" class="img-circle"></td>
-                            <td>{substr($value['decs'],0,12)}……</td>
+                            <td>{$value['decs']|truncate:10}……</td>
                             <td>{$value['date']}</td>
                             <td>{$value['state']}</td>
                             <td>
@@ -129,7 +129,7 @@
         {/if}
 
         {if $update}
-        <div class="row">
+        <div class="row" style="display: inline-block; margin-bottom: 30px;">
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: #FFFFFF; border-bottom: 1px solid #dfdfdf; border-radius: 0;">
                     <li><a href="?c=admin">后台首页</a></li>
@@ -142,7 +142,7 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <table class="table table-bordered" style="width: 98%; margin: auto;">
+                    <table class="table table-bordered" style="width: 90%; margin: auto;">
                         <tr>
                             <td class="text-center" width="120">广告标题</td>
                             <td><input type="text" class="form-control" name="adName" value="{$data[0]['title']}"></td>

@@ -34,11 +34,25 @@
                     <li>
                         <a href="?m=main">成为百家号作者</a>
                     </li>
+                    {if empty($smarty.session.user.0.user)}
                     <li>
                         <a href="javascript:;" id="btn">登录</a>
                     </li>
+                    {else}
                     <li>
-                        <a href="?c=admin">百度首页</a>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">个人中心</a>
+                            </li>
+                            <li>
+                                <a href="?c=user&action=userlogout">退出</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {/if}
+                    <li>
+                        <a href="?c=index">百度首页</a>
                     </li>
                 </ul>
 
