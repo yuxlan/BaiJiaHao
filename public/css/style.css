@@ -308,11 +308,17 @@ a{
 
 .main-part-last-li{
 	background: #FFFFFF;
-	margin: 0 0 3% 0;
+	margin: 3% 0 3% 0;
 }
 
-.main-part-last-li h4{
-	line-height: 45px;
+.main-part-last-li a,
+.main-part-last-li a:hover,
+.main-part-last-li a:active,
+.main-part-last-li a:visited{
+	color: #000000;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 55px;
 }
 
 .media-side{

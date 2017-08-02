@@ -6,8 +6,8 @@ class userModel extends Model{
     }
 
 //    更新用户信息
-    public function updateUser($array){
-        return parent::update('user',$array);
+    public function updateUser($array,$where){
+        return parent::update('user',$array,$where);
     }
 
 //    用户注册

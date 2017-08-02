@@ -3,7 +3,6 @@
 class Model{
 //    连接数据库
     protected $db;
-
     public function __construct(){
         try{
             $this->db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'',''.USER.'',''.PASSWORD.'');
@@ -19,14 +18,20 @@ class Model{
         $sql = "select * from ".$_table." ".$_where." ".$_limit;
         $result = $this->db->query($sql);
         $data = $result->fetchAll(PDO::FETCH_ASSOC);
-//        var_dump($data);
+        return $data;
+    }
+
+//    获取所有不重复的数据
+    protected function getno($column,$_table,$_where=null,$_limit=null){
+        $sql = "select distinct ".$column." from ".$_table." ".$_where." ".$_limit;
+        $result = $this->db->query($sql);
+        $data = $result->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
 //    获取数据总数
     protected function total($_table,$where=null){
         $sql = "select * from ".$_table." ".$where;
-//        rowCount()  获取总数
         $result = $this->db->query($sql)->rowCount();
         return $result;
     }
@@ -73,9 +78,7 @@ class Model{
 //    删除数据
     protected function delete($_table,$_where=null){
         $sql = "delete from ".$_table." ".$_where;
-//        var_dump($sql);
         $result = $this->db->exec($sql);
-//        var_dump($result);
         return $result;
     }
 
