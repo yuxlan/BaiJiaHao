@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>申请成为作者</title>
+
+    <!-- 首页自定义样式 -->
+    <link rel="stylesheet" href="public/css/register.css" type="text/css" />
+</head>
+<body>
+
+<!-- 顶部 -->
+<nav>
+    <div class="container">
+        <div>
+            <img src="public/imgs/logos/ibd-logo2.png" />
+        </div>
+        <p style="color: #ff0000;">放弃&nbsp;&nbsp;<a href="?c=index">返回首页</a></p>
+        <img src="public/imgs/icons/reg_hr.png" class="nav-hr" />
+    </div>
+</nav>
+
+
+<!-- 注册表单 -->
+<div class="container">
+    <form class="register-form" action="?c=user&action=register" method="post" style="margin-left: 350px;">
+        <label>身份证</label>
+        <input value="" name="verNum" id="verNum" type="text" placeholder="  请填写正确的身份证号" />
+        <div id="info1"></div>
+
+        <input type="checkbox" checked="checked" id="read"/><p>阅读并接受<a href="javascript:;">《百度用户协议》</a></p>
+        <input type="submit" value="确认申请" id="submit" class="btn btn-primary" name="send" />
+    </form>
+
+    <script>
+        //  点击刷新验证码
+        document.getElementById('codes').onclick=function () {
+            this.src='application/configs/captcha.php?num='+Math.random();
+        };
+    </script>
+
+
+    <div class="footer-text">
+        <p>2017@</p>
+    </div>
+</div>
+
+<!-- 自定义操作 -->
+<script src="public/js/operation.js"></script>
+</body>
+</html>

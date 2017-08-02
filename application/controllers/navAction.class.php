@@ -1,6 +1,9 @@
 <?php
 
+// 导航控制器
+
 class navAction extends Action{
+
     public function main(){
         switch ($_GET['action']){
             case 'add':
@@ -22,9 +25,10 @@ class navAction extends Action{
         $this->smarty->display('admin/nav.html');
     }
 
+//    导航管理
     private function show(){
         $this->smarty->assign('show',true);
-//        获取所有数据
+//        获取所有导航数据
         $_total = $this->model->getAll();
 //        分页类
         $page = new Page($_total,6);
@@ -41,6 +45,7 @@ class navAction extends Action{
                     break;
             }
         }
+
 //        赋值变量
         $this->smarty->assign('navData',$navData);
 //        分页显示
@@ -58,7 +63,7 @@ class navAction extends Action{
                 Tool::progress('排序失败','?c=nav&action=show',0,1);
             }
         }
-//        var_dump($_POST);
+
 //        多条删除
         if ($_POST['delete']){
 //            var_dump($_POST);
@@ -75,6 +80,7 @@ class navAction extends Action{
         }
     }
 
+//    添加导航
     private function add(){
         $this->smarty->assign('add',true);
 
@@ -95,8 +101,10 @@ class navAction extends Action{
         }
     }
 
+//    更新导航
     private function update(){
         $this->smarty->assign('update',true);
+
         $data = $this->model->getOne($_GET['id']);
         $this->smarty->assign('data',$data);
 
@@ -116,9 +124,10 @@ class navAction extends Action{
         }
     }
 
+//    删除导航
     private function delete(){
         $this->smarty->assign('delete',true);
-//        var_dump($_GET['id']);
+
         $result = $this->model->deleteNav($_GET['id']);
         if ($result){
             Tool::progress("删除成功",'?c=nav&action=show',1,1);
@@ -129,7 +138,6 @@ class navAction extends Action{
 
 //    导航状态改变
     private function state(){
-//        var_dump($_GET);
         if ($_GET['flag'] == 'show'){
             $state = 1;
         }

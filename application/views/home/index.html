@@ -11,6 +11,10 @@
 		{if $page}
 		<title>频道列表-百家号</title>
 		{/if}
+
+		{if $one}
+		<title>文章详情</title>
+		{/if}
 	
 		<!-- 首页自定义样式 -->
 		<link rel="stylesheet" href="public/css/style.css" type="text/css" />
@@ -26,13 +30,10 @@
 
 		<!-- 首页中间 -->
 		{if $index}
-
 			<!-- 主图轮播以及侧边图片 -->
 			<section class="carousel-container">
 				<div class="container">
 					<div class="row">
-
-
 
 						<!-- 轮播图 -->
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -41,29 +42,29 @@
 
 								<!-- 轮播游标 -->
 								<ol class="carousel-indicators">
-									{foreach $adData as $k=>$v}
-									{if $k==0}
-									<li data-target = "#myLb" data-slide-to = "{$k}" class="active"></li>
-									{else}
-									<li data-target = "#myLb" data-slide-to = "{$k}"></li>
-									{/if}
+									{foreach $articleLb as $k=>$v}
+										{if $k==0}
+										<li data-target = "#myLb" data-slide-to = "{$k}" class="active"></li>
+										{else}
+										<li data-target = "#myLb" data-slide-to = "{$k}"></li>
+										{/if}
 									{/foreach}
 								</ol>
 
 								<!-- 轮播内容 -->
 								<div class="carousel-inner">
-									{foreach $adData as $k=>$v}
-									{if $k==0}
-									<div class="item active">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</p>
-										<img src="public/uploads/ad/{$v['pic']}" alt=""/>
-									</div>
-									{else}
-									<div class="item">
-										<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</p>
-										<img src="public/uploads/ad/{$v['pic']}" alt=""/>
-									</div>
-									{/if}
+									{foreach $articleLb as $k=>$v}
+										{if $k==0}
+										<div class="item active">
+											<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</p>
+											<a href="?c=index&p=one&id={$v['id']}&nid={$v['nid']}"><img src="public/uploads/article/{$v['pic'][0]}" alt="" style="width: 795px; height: 340px;"/></a>
+										</div>
+										{else}
+										<div class="item">
+											<p class="carousel-p">&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</p>
+											<a href="?c=index&p=one&id={$v['id']}&nid={$v['nid']}"><img src="public/uploads/article/{$v['pic'][0]}" alt="" style="width: 795px; height: 340px;"/></a>
+										</div>
+										{/if}
 									{/foreach}
 								</div>
 
@@ -73,8 +74,6 @@
 
 							</div>
 						</div>
-
-
 
 						<!-- 侧边图片 -->
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -118,20 +117,20 @@
 							<ul class="media-list">
 
 								{foreach $article as $k=>$v}
-									{if count($v['pic'])==2}
+									{if count($v['pic'])==1}
 										<li class="media">
 									<div class="media-div">
 										<div class="media-body">
 
 											<div class="media-img row">
 												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-													<img src="public/uploads/article/{$v['pic'][1]}" style="width: 179px; height: 120px;" />
+													<img src="public/uploads/article/{$v['pic'][0]}" style="width: 179px; height: 120px;" />
 												</div>
 
 												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
 													<a class="media-heading" href="?c=index&p=one&id={$v['id']}&nid={$v['nid']}">{$v['title']|truncate:20:'……'}</a>
 													<div class="media-text">
-														<a href="javascript:;">{$v['author']}</a>
+														<a href="?c=index&m=authorArticle">{$artAuthorName[$k]}</a>
 														<p>{substr($v['date'],11,5)}</p>
 														<p>阅读（{$v['pageview']}）</p>
 														<p>
@@ -159,7 +158,7 @@
 
 											<div class="media-img row">
 
-												{for $i = 1; $i < count($v['pic']); $i++}
+												{for $i = 0; $i < count($v['pic']); $i++}
 
 												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 													<img src="public/uploads/article/{$v['pic'][$i]}" style="width: 179px; height: 120px;" />
@@ -175,7 +174,7 @@
 
 											<div class="media-text">
 
-												<a href="javascript:;">{$v['author']}</a>
+												<a href="?c=index&m=authorArticle">{$artAuthorName[$k]}</a>
 												<p>{substr($v['date'],11,5)}</p>
 												<p>阅读（{$v['pageview']}）</p>
 
@@ -197,11 +196,9 @@
 									{/if}
 								{/foreach}
 
-								{if count($article)>10}
 								<li class="main-part-last-li text-center">
 									{$allPage}
 								</li>
-								{/if}
 
 							</ul>
 						</div>
@@ -214,13 +211,6 @@
 										<h4 class="meida-side-heading media-heading">热点文章</h4>
 									</div>
 								</li>
-
-								<!--<li class="media">-->
-									<!--<ul>-->
-										<!--<a href="javascript:;"><li class="active media-side-date" id="dayclick">日榜</li></a>-->
-										<!--<a href="javascript:;"><li id="weekclick">周榜</li></a>-->
-									<!--</ul>-->
-								<!--</li>-->
 
 								{foreach $articleByView as $k=>$v}
 								{if $k==0}
@@ -245,79 +235,12 @@
 								{/if}
 								{/foreach}
 
-								<!--<div id="day">-->
-
-									<!--<li class="media-side-li-3 media">-->
-										<!--<div class="media-body">-->
-											<!--<p>1</p>-->
-											<!--<h4 class="media-heading">-->
-												<!--<a href="javascript:;">只为圈地 共享单车竞争惨烈 ​微博传出疑似ofo运维人员被…</a>-->
-											<!--</h4>-->
-										<!--</div>-->
-									<!--</li>-->
-
-									<!--<li class="media-side-ul-li media">-->
-										<!--<div class="media-body">-->
-											<!--<p>2</p>-->
-											<!--<h4 class="media-heading">-->
-												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
-											<!--</h4>-->
-											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
-										<!--</div>-->
-									<!--</li>-->
-
-									<!--<li class="media-side-ul-li media">-->
-										<!--<div class="media-body">-->
-											<!--<p>3</p>-->
-											<!--<h4 class="media-heading">-->
-												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
-											<!--</h4>-->
-											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
-										<!--</div>-->
-									<!--</li>-->
-
-								<!--</div>-->
-
-								<!--<div id="week">-->
-
-									<!--<li class="media-side-li-3 media">-->
-										<!--<div class="media-body">-->
-											<!--<p>1</p>-->
-											<!--<h4 class="media-heading">-->
-												<!--<a href="javascript:;">自动驾驶汽车为何加装多种传感器？一张图给你答案</a>-->
-											<!--</h4>-->
-										<!--</div>-->
-									<!--</li>-->
-
-									<!--<li class="media-side-ul-li media">-->
-										<!--<div class="media-body">-->
-											<!--<p>2</p>-->
-											<!--<h4 class="media-heading">-->
-												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
-											<!--</h4>-->
-											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
-										<!--</div>-->
-									<!--</li>-->
-
-									<!--<li class="media-side-ul-li media">-->
-										<!--<div class="media-body">-->
-											<!--<p>3</p>-->
-											<!--<h4 class="media-heading">-->
-												<!--<a href="javascript:;">人工智能最强年中盘点：…</a>-->
-											<!--</h4>-->
-											<!--<a class="media-side-author" href="javascript:;">智东西</a>-->
-										<!--</div>-->
-									<!--</li>-->
-
-								<!--</div>-->
-
 							</ul>
 						</div>
 
 					</div>
 				</div>
 			</section>
-
 		{/if}
 
 		<!-- 其它页面中间 -->
@@ -332,20 +255,20 @@
 							<ul class="media-list">
 
 								{foreach $articleByType as $k=>$v}
-								{if count($v['pic'])==2}
+								{if count($v['pic'])==1}
 								<li class="media">
 									<div class="media-div">
 										<div class="media-body">
 
 											<div class="media-img row">
 												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-													<img src="public/uploads/article/{$v['pic'][1]}" style="width: 179px; height: 120px;" />
+													<img src="public/uploads/article/{$v['pic'][0]}" style="width: 179px; height: 120px;" />
 												</div>
 
 												<div class="media-text-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
 													<a class="media-heading" href="?c=index&p=one&id={$v['id']}&nid={$v['nid']}">{$v['title']|truncate:20:'……'}</a>
 													<div class="media-text">
-														<a href="javascript:;">{$v['author']}</a>
+														<a href="?c=index&m=authorArticle">{$artAuthorName[$k]}</a>
 														<p>{substr($v['date'],11,5)}</p>
 														<p>阅读（{$v['pageview']}）</p>
 														<p>
@@ -373,7 +296,7 @@
 
 											<div class="media-img row">
 
-												{for $i = 1; $i < count($v['pic']); $i++}
+												{for $i = 0; $i < count($v['pic']); $i++}
 
 												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 													<img src="public/uploads/article/{$v['pic'][$i]}" style="width: 179px; height: 120px;" />
@@ -389,7 +312,7 @@
 
 											<div class="media-text">
 
-												<a href="javascript:;">{$v['author']}</a>
+												<a href="?c=index&m=authorArticle">{$artAuthorName[$k]}</a>
 												<p>{substr($v['date'],11,5)}</p>
 												<p>阅读（{$v['pageview']}）</p>
 
@@ -411,11 +334,9 @@
 								{/if}
 								{/foreach}
 
-								{if count($articleByType)>10}
 								<li class="main-part-last-li text-center">
 									{$allPage}
 								</li>
-								{/if}
 
 							</ul>
 						</div>
@@ -430,17 +351,17 @@
 									</div>
 								</li>
 
-								{foreach $articleByTypeView as $k=>$v}
+								{foreach $articleByTypeViewOnce as $k=>$v}
 								<li class="media">
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-											<img src="public/uploads/article/{$v['pic'][0]}" class="img-circle" style="height: 99px;width: 99px; padding: 12px;">
+											<img src="public/uploads/author/{$artAuthorPicView[$k]}" class="img-circle" style="height: 99px;width: 99px; padding: 12px;">
 										</div>
 
 										<div class="media-author-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" >{$v['author']} </a>
-											<a href="javascript:;" class="media-author-part-a2" >{$v['lead']|truncate:10}</a>
-											<a href="javascript:;" class="media-author-part-a3" >{$v['title']|truncate:20}</a>
+											<a href="?c=index&m=authorArticle" class="media-author-part-a1" >{$artAuthorNameView[$k]} </a>
+											<a href="?c=index&m=authorArticle" class="media-author-part-a2" >{$artAuthorLeadView[$k]|truncate:10}</a>
+											<a href="?c=index&m=authorArticle" class="media-author-part-a3" >{$v['title']|truncate:20}</a>
 										</div>
 									</div>
 								</li>
@@ -505,7 +426,7 @@
 										<h3 style="margin-bottom: 30px">{$oneArticle[0]['title']}</h3>
 										<table style="width: 50%; text-align: center;margin-bottom: 30px">
 											<tr>
-												<td style="border-right: 1px solid #000000;">{$oneArticle[0]['author']}</td>
+												<td style="border-right: 1px solid #000000;">{$artAuthorNameView[0]}</td>
 												<td style="color: #9d9d9d;border-right: 1px solid #000000;">{$oneArticle[0]['date']}</td>
 												<td style="color: #9d9d9d">阅读：{$oneArticle[0]['pageview']}</td>
 											</tr>
@@ -520,12 +441,22 @@
 											<p style="font-size: 18px; display: inline-block;">阅读量：<a style="color: #ff0000">{$oneArticle[0]['pageview']}</a></p>
 											<table style="width:14%;text-align: center;float:right;display: inline-block;font-size: 18px;color: #9d9d9d">
 												<tr>
-													<td width="40%"><i class="fa fa-thumbs-o-up"></i></td>
-													<td width="40%">|</td>
-													<td width="40%"><i class="fa fa-thumbs-o-down"></i></td>
+													<td><a id="oup" style="color: #9d9d9d; cursor: pointer;"><i id="oupi" class="fa fa-thumbs-o-up"></i></a>&nbsp;&nbsp;{$oneArticle[0]['like']}</td>
+													<td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+													<td><a id="odown" style="color: #9d9d9d; cursor: pointer;"><i id="oudowni" class="fa fa-thumbs-o-down"></i></a>&nbsp;&nbsp;{$oneArticle[0]['unlike']}</td>
 												</tr>
 											</table>
 										</div>
+										<script type="text/javascript">
+											$('#oup').click(function () {
+												$('#oupi').removeClass('fa-thumbs-o-up');
+												$('#oupi').addClass('fa-thumbs-up');
+                                            });
+                                            $('#odown').click(function () {
+                                                $('#odowni').removeClass('fa-thumbs-o-down');
+                                                $('#odowni').addClass('fa-thumbs-down');
+                                            });
+										</script>
 										<hr style="margin-bottom: 30px">
 										<div style="margin-left: 25px;margin-bottom: 60px;">
 											&nbsp;<p style="font-size: 18px;">分享</p>
@@ -546,12 +477,12 @@
 								<div class="media-body">
 									<div class="row" style="background: #fbfbfb;border-bottom: 1px solid #F2F2F2;">
 										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-											<img src="public/uploads/article/{$oneArticle[0]['pic'][0]}" class="img-circle" style="height: 90px;width: 90px; padding: 12px;">
+											<img src="public/uploads/author/{$artAuthorPicView[0]}" class="img-circle" style="height: 90px;width: 90px; padding: 12px;">
 										</div>
 
 										<div class="media-author-part-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" >{$oneArticle[0]['author']} </a>
-											<a href="javascript:;" class="media-author-part-a2" >{$oneArticle[0]['lead']|truncate:10}</a>
+											<a href="?c=index&m=authorArticle" class="media-author-part-a1" >{$artAuthorNameView[0]} </a>
+											<a href="?c=index&m=authorArticle" class="media-author-part-a2" >{$artAuthorLeadView[0]|truncate:10}</a>
 										</div>
 									</div>
 								</div>
@@ -614,19 +545,19 @@
 			<li id="showerweima"></li>
 			<li id="scrolltop"></li>
 		</ul>
-			<div class="download-qrcode">
-				<div class="qrcode-img">
-					<img src="public/imgs/logos/news-qrcode_8fe3c4d.png">
-				</div>
-				<div class="qrcode-slogan">
-					<h3>百度新闻客户端</h3>
-					<ul>
-						<li>扫描二维码下载</li>
-						<li>订阅“百家”频道</li>
-						<li>观看更多百家精彩新闻</li>
-					</ul>
-				</div>
+		<div class="download-qrcode">
+			<div class="qrcode-img">
+				<img src="public/imgs/logos/news-qrcode_8fe3c4d.png">
 			</div>
+			<div class="qrcode-slogan">
+				<h3>百度新闻客户端</h3>
+				<ul>
+					<li>扫描二维码下载</li>
+					<li>订阅“百家”频道</li>
+					<li>观看更多百家精彩新闻</li>
+				</ul>
+			</div>
+		</div>
 
 		<!--  页尾部分   -->
 		{include file='home/footer.html'}

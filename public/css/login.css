@@ -52,12 +52,28 @@
 
 .form-control-user{
     background-image: url(../imgs/icons/input_icons_user_gray.png);
+    padding-left: 30px;
+    background-position-y: center;
+    background-repeat: no-repeat;
+}
+
+.form-control-user:focus{
+    background-image: url(../imgs/icons/input_icons_user_blue.png);
+    padding-left: 30px;
     background-position-y: center;
     background-repeat: no-repeat;
 }
 
 .form-control-pwd{
     background-image: url(../imgs/icons/input_icons_pwd_gray.png);
+    padding-left: 30px;
+    background-position-y: center;
+    background-repeat: no-repeat;
+}
+
+.form-control-pwd:focus{
+    background-image: url(../imgs/icons/input_icons_pwd_blue.png);
+    padding-left: 30px;
     background-position-y: center;
     background-repeat: no-repeat;
 }

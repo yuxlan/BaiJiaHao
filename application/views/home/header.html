@@ -11,7 +11,7 @@
             <div class="container">
 
                 <div class="navbar-header">
-                    <a href="application/views/home/index.html" class="navbar-brand">
+                    <a href="index.php" class="navbar-brand">
                         <img src="public/imgs/logos/logo.png" class="navbar-logo" />
                     </a>
                 </div>
@@ -31,19 +31,36 @@
                 </ul>
 
                 <ul class="nav nav-tabs">
-                    <li>
-                        <a href="?m=main">成为百家号作者</a>
-                    </li>
-                    {if empty($smarty.session.user.0.user)}
+                    {if empty($smarty.session.admin.0.user) && empty($smarty.session.user.0.user)}
+                        <li>
+                            <a href="?m=main">成为百家号作者</a>
+                        </li>
+                    {else}
+                        {if $smarty.session.user.0.level_id == 1}
+                            <li>
+                                <a href="?c=index&m=beAuthor">成为百家号作者</a>
+                            </li>
+                        {else if $smarty.session.user.0.level_id == 2}
+                        <li>
+                            <a href="?c=index&m=addArticle">写文章</a>
+                        </li>
+                        {else if}
+                        <li>
+                            <a href="?c=admin">后台首页</a>
+                        </li>
+                        {/if}
+                    {/if}
+
+                    {if empty($smarty.session.admin.0.user) && empty($smarty.session.user.0.user)}
                     <li>
                         <a href="javascript:;" id="btn">登录</a>
                     </li>
                     {else}
                     <li>
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}<span class="caret"></span></a>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}{$smarty.session.admin.0.user}<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#">个人中心</a>
+                                <a href="?c=index&m=userCenter">个人中心</a>
                             </li>
                             <li>
                                 <a href="?c=user&action=userlogout">退出</a>
