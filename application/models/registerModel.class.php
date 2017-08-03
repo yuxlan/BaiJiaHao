@@ -1,10 +1,12 @@
 <?php
 
-class userModel extends Model{
+
+class registerModel extends Model{
     public function verifyUser($user,$pwd){
         return parent::get('user',"where user='".$user."' and pwd='".$pwd."'");
     }
 
+//    获取用户信息
     public function getUser($user){
         return parent::get('user',"where user='".$user."'");
     }
@@ -19,11 +21,6 @@ class userModel extends Model{
         return parent::add('user',$array);
     }
 }
-
-
-
-
-
 
 
 

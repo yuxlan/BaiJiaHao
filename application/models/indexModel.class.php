@@ -28,6 +28,9 @@ class indexModel extends Model {
         return parent::update('article',$array,$where);
     }
 
+    public function updateUser($array,$where){
+        return parent::update('user',$array,$where);
+    }
 
     public function getNavForArt(){
         return parent::get('nav');

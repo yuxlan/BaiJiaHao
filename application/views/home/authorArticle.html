@@ -3,9 +3,83 @@
     <head>
         <meta charset="UTF-8">
         <title>作者文章</title>
+
+        <link rel="stylesheet" href="public/css/style.css" type="text/css" />
     </head>
     <body>
-        <!-- 导航栏 -->
-        {include file='home/header.html'}
+    <nav class="navbar" style="border-bottom: 1px solid #dfdfdf; height: 70px; background: #FFFFFF;">
+        <div class="container">
+
+            <div class="navbar-header">
+                <a href="index.php" class="navbar-brand">
+                    <img src="public/imgs/logos/baidu.gif" class="navbar-logo" />
+                </a>
+            </div>
+
+            <ul class="nav nav-pills" style="float: right;">
+                <li>
+                    {if empty($smarty.session.admin.0.user)}
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}<span class="caret"></span></a>
+                    {else}
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.admin.0.user}<span class="caret"></span></a>
+                    {/if}
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="?c=userCenter&action=show">个人中心</a>
+                        </li>
+                        <li>
+                            {if empty($smarty.session.admin.0.user)}
+                            <a href="?c=user&action=userlogout">退出</a>
+                            {else}
+                            <a href="??c=user&action=logout">退出</a>
+                            {/if}
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="?c=index">百度首页</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+    <ul class="media-side media-list">
+        <li class="media" style="padding: 20px;background: #fbfbfb;border-bottom: 1px solid #F2F2F2;">
+            <div class="media-body">
+                <div class="row">
+                    <div class="col-lg-1 col-md-1">
+                        <img src="public/uploads/author/{$artAuthorPicView[0]}" style="width: 100px; height: 100px;">
+                    </div>
+                    <div class="col-lg-1 col-md-1">
+                    </div>
+                    <div class="col-lg-10 col-md-10">
+                        <table style="width: 100%; font-size: 14px;">
+                            <tr><br></tr>
+                            <tr>
+                                <a href="?c=index&m=authorArticle&id={$artAuthorIdView[0]}" style="font-size: 16px;color: #000000;">{$artAuthorNameView[0]}</a>
+                            </tr>
+                            <tr>
+                                <td>{$artAuthorLeadView[0]}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        {foreach $authorArticle as $k=>$v}
+        <li class="media-side-ul-li media">
+            <div class="media-body">
+                <p>{$k+1}</p>
+                <h4 class="media-heading">
+                    <a href="?c=index&p=one&id={$v['id']}&nid={$v['nid']}">{$v['title']|truncate:11:'……'}</a>
+                </h4>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+    </div>
     </body>
 </html>

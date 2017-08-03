@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 19:54:24
+/* Smarty version 3.1.30, created on 2017-08-03 14:46:48
   from "D:\php\wamp\www\BaiJia\application\views\home\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5981bd706e1215_11756558',
+  'unifunc' => 'content_5982c6d8a87349_25909038',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea0e898880887c61353111d6408c7b409c7d2c98' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJia\\application\\views\\home\\login.html',
-      1 => 1501674861,
+      1 => 1501742801,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5981bd706e1215_11756558 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5982c6d8a87349_25909038 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,7 @@ function content_5981bd706e1215_11756558 (Smarty_Internal_Template $_smarty_tpl)
                         <input type="checkbox" checked="checked" id="checked" />下次自动登录
                         <a href="javascript:;" class="modal-body-a">登录遇到问题</a>
                         <input name="send" type="submit" class="form-control-button btn btn-primary" id="send" value="登录" />
-                        <a href="?c=user&action=register" class="modal-body-a" target="_blank">立即注册</a>
+                        <a href="?c=register&action=register" class="modal-body-a" target="_blank">立即注册</a>
                     </form>
                 </div>
                 <div class="modal-footer">

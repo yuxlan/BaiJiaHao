@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 18:22:09
+/* Smarty version 3.1.30, created on 2017-08-03 17:56:49
   from "D:\php\wamp\www\BaiJia\application\views\home\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5981a7d1d89fa9_61850584',
+  'unifunc' => 'content_5982f361d2f527_99386733',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f147c9bfabbfbb783907654d205d8977e9a6c1b' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJia\\application\\views\\home\\header.html',
-      1 => 1501669311,
+      1 => 1501754180,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5981a7d1d89fa9_61850584 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5982f361d2f527_99386733 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,35 +70,49 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                 </ul>
 
                 <ul class="nav nav-tabs">
-                    <?php if (empty($_SESSION['admin'][0]['user']) || $_SESSION['admin'][0]['level_id'] == 1) {?>
-                    <li>
-                        <a href="?m=main">成为百家号作者</a>
-                    </li>
+                    <?php if (empty($_SESSION['admin'][0]['user']) && empty($_SESSION['user'][0]['user'])) {?>
+                        <li>
+                            <a href="?m=main">成为百家号作者</a>
+                        </li>
+                    <?php } else { ?>
+                        <?php if ($_SESSION['user'][0]['level_id'] == 1) {?>
+                            <li>
+                                <a href="?c=index&m=beAuthor">成为百家号作者</a>
+                            </li>
+                        <?php } elseif ($_SESSION['user'][0]['level_id'] == 2 && empty($_SESSION['admin'][0]['user'])) {?>
+                        <li>
+                            <a href="?c=index&m=addArticle">写文章</a>
+                        </li>
+                        <?php } else { ?>
+                        <li>
+                            <a href="?c=admin">后台首页</a>
+                        </li>
+                        <?php }?>
                     <?php }?>
-                    <?php if ($_SESSION['admin'][0]['level_id'] == 0 && !empty($_SESSION['admin'][0]['user'])) {?>
-                    <li>
-                        <a href="?c=admin">后台首页</a>
-                    </li>
-                    <?php }?>
-                    <?php if ($_SESSION['admin'][0]['level_id'] == 2) {?>
-                    <li>
-                        <a href="?c=index&m=addArticle">写文章</a>
-                    </li>
-                    <?php }?>
-                    <?php if (empty($_SESSION['admin'][0]['user'])) {?>
+
+                    <?php if (empty($_SESSION['admin'][0]['user']) && empty($_SESSION['user'][0]['user'])) {?>
                     <li>
                         <a href="javascript:;" id="btn">登录</a>
                     </li>
                     <?php } else { ?>
                     <li>
+                        <?php if (empty($_SESSION['admin'][0]['user'])) {?>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['user'][0]['user'];?>
+<span class="caret"></span></a>
+                        <?php } else { ?>
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['admin'][0]['user'];?>
 <span class="caret"></span></a>
+                        <?php }?>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="?c=index&m=userCenter">个人中心</a>
+                                <a href="?c=userCenter&action=show">个人中心</a>
                             </li>
                             <li>
+                                <?php if (empty($_SESSION['admin'][0]['user'])) {?>
                                 <a href="?c=user&action=userlogout">退出</a>
+                                <?php } else { ?>
+                                <a href="??c=user&action=logout">退出</a>
+                                <?php }?>
                             </li>
                         </ul>
                     </li>

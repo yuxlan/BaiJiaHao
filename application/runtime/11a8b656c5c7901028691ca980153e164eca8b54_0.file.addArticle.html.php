@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 19:30:11
+/* Smarty version 3.1.30, created on 2017-08-03 18:34:17
   from "D:\php\wamp\www\BaiJia\application\views\home\addArticle.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5981b7c340e046_06396554',
+  'unifunc' => 'content_5982fc29a53295_51814121',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '11a8b656c5c7901028691ca980153e164eca8b54' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJia\\application\\views\\home\\addArticle.html',
-      1 => 1501673409,
+      1 => 1501754189,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5981b7c340e046_06396554 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5982fc29a53295_51814121 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,14 +42,23 @@ function content_5981b7c340e046_06396554 (Smarty_Internal_Template $_smarty_tpl)
 
             <ul class="nav nav-pills" style="float: right;">
                 <li>
+                    <?php if (empty($_SESSION['admin'][0]['user'])) {?>
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['user'][0]['user'];?>
+<span class="caret"></span></a>
+                    <?php } else { ?>
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['admin'][0]['user'];?>
 <span class="caret"></span></a>
+                    <?php }?>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="?c=index&m=userCenter">个人中心</a>
+                            <a href="?c=userCenter&action=show">个人中心</a>
                         </li>
                         <li>
+                            <?php if (empty($_SESSION['admin'][0]['user'])) {?>
                             <a href="?c=user&action=userlogout">退出</a>
+                            <?php } else { ?>
+                            <a href="??c=user&action=logout">退出</a>
+                            <?php }?>
                         </li>
                     </ul>
                 </li>
