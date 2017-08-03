@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 14:26:29
+/* Smarty version 3.1.30, created on 2017-08-03 19:57:03
   from "D:\php\wamp\www\BaiJia\application\views\admin\admin.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598170954574e5_27837402',
+  'unifunc' => 'content_59830f8fba3454_78936592',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '696d284cdd4b47b73074118ca7aab63e99927020' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJia\\application\\views\\admin\\admin.html',
-      1 => 1501655041,
+      1 => 1501761419,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598170954574e5_27837402 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59830f8fba3454_78936592 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,6 +122,26 @@ function content_598170954574e5_27837402 (Smarty_Internal_Template $_smarty_tpl)
                         <div class="panel-body">
                             <ul class="list-unstyled">
                                 <li><a href="?c=uManage&action=show" target="main">管理用户</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--系统消息-->
+                <div class="panel">
+                    <div class="panel-heading" role="tab" id="headingfive">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefive"
+                               aria-expanded="false" aria-controls="collapsefive">
+                                系统消息
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapsefive" class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="headingfive">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li><a href="?c=message&action=show" target="main">管理系统消息</a></li>
+                                <li><a href="?c=message&action=send" target="main">发送系统消息</a></li>
                             </ul>
                         </div>
                     </div>

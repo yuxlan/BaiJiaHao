@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-08-03 16:49:29
+  from "D:\php\wamp\www\BaiJia\application\views\home\register.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5982e399ed4ed0_39552337',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '5bb5ed42279a8fb9ce0ec17bb9d64cc199fad199' => 
+    array (
+      0 => 'D:\\php\\wamp\\www\\BaiJia\\application\\views\\home\\register.html',
+      1 => 1501750149,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:home/login.html' => 1,
+  ),
+),false)) {
+function content_5982e399ed4ed0_39552337 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,7 +48,9 @@
 		
 		<!-- 登录表单 -->
 
-		{include file='home/login.html'}
+		<?php $_smarty_tpl->_subTemplateRender("file:home/login.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 		<!-- 注册表单 -->
@@ -50,9 +77,12 @@
 				<input type="button" value="注册" id="regsubmit" class="btn btn-primary" name="send" />
 			</form>
 
-			<script src="public/js/tools.js" type="text/javascript"></script>
+			<?php echo '<script'; ?>
+ src="public/js/tools.js" type="text/javascript"><?php echo '</script'; ?>
+>
 
-			<script>
+			<?php echo '<script'; ?>
+>
                 //  点击刷新验证码
                 $('#regcodes').click(function () {
                     this.src='application/configs/captcha.php?num='+Math.random();
@@ -163,7 +193,8 @@
                         }
                     }
                 })
-			</script>
+			<?php echo '</script'; ?>
+>
 			
 			<div class="alert alert-info">
 				<h5 class="alert-h"><img src="public/imgs/icons/phone.png" /><strong>&nbsp;&nbsp;手机快速注册</strong></h5>
@@ -182,6 +213,10 @@
 		</div>
 
 		<!-- 自定义操作 -->
-		<script src="public/js/operation.js"></script>
+		<?php echo '<script'; ?>
+ src="public/js/operation.js"><?php echo '</script'; ?>
+>
 	</body>
 </html>
+<?php }
+}

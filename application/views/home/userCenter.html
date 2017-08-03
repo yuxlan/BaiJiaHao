@@ -3,9 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>用户中心</title>
+
+        <link rel="stylesheet" href="public/css/style.css" type="text/css" />
     </head>
-    <body style="background: rgb(242, 242, 242);">
-        <nav class="navbar navbar-default" style="background: #FFFFFF">
+    <body style="background: #FFFFFF;">
+        <nav class="navbar navbar-default" style="background: #FFFFFF;">
             <div class="container">
 
                 <div class="navbar-header">
@@ -21,7 +23,7 @@
                     <li>
                         <a href="?m=main" class="dropdown-toggle" data-toggle="dropdown">消息</a>
                         <div class="dropdown-menu" role="menu" style="width: 300px; height: 200px;">
-                            <p style="margin: 15px 0 0 10px;">消息</p>
+                            <p style="margin: 15px 0 0 10px;">{$smarty.session.user.0.message}</p>
                             <hr>
                         </div>
                     </li>
@@ -29,21 +31,29 @@
                         <a href="?m=main" class="dropdown-toggle" data-toggle="dropdown">设置</a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#">账号设置</a>
+                                <a href="?c=userCenter&action=userupdate">账号设置</a>
                             </li>
                             <li>
-                                <a href="#">详细设置</a>
+                                <a href="?c=userCenter&action=userupdate">详细设置</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}</a>
+                        {if empty($smarty.session.admin.0.user)}
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}<span class="caret"></span></a>
+                        {else}
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.admin.0.user}<span class="caret"></span></a>
+                        {/if}
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="?c=index&m=userCenter">个人中心</a>
+                                <a href="?c=userCenter&action=show">个人中心</a>
                             </li>
                             <li>
+                                {if empty($smarty.session.admin.0.user)}
                                 <a href="?c=user&action=userlogout">退出</a>
+                                {else}
+                                <a href="??c=user&action=logout">退出</a>
+                                {/if}
                             </li>
                         </ul>
                     </li>
@@ -51,11 +61,13 @@
 
             </div>
         </nav>
+
+        {if $show}
         <section>
             <div class="container" style="background: #FFFFFF; border: 1px solid #dfdfdf; padding: 20px;">
                 <div class="row">
                     <div class="col-lg-1 col-md-1">
-                        <img src="public/uploads/author/{$smarty.session.user.0.pic}" style="width: 100px; height: 100px;">
+                        <img src="public/uploads/author/{$smarty.session.user.0.pic}" alt="上传头像" style="width: 100px; height: 100px;">
                         <a href="?c=index&m=authorArticle" style="font-size: 16px; display: block;color: #000000; text-align: center;width: 100px;margin-top: 10px;">{$smarty.session.user.0.user}</a>
                     </div>
                     <div class="col-lg-1 col-md-1">
@@ -76,6 +88,232 @@
             <div class="container" style="background: #FFFFFF; border: 1px solid #dfdfdf; padding: 20px;">
                 <p><a style="font-size: 14px;color: #000000;"><strong>个人简介：</strong></a>{$smarty.session.user.0.decs}</p>
             </div>
+            <div class="container" style="background: #FFFFFF; border: 1px solid #dfdfdf; padding: 20px;">
+                <p><a style="font-size: 14px;color: #000000;"><strong>我的文章：</strong></a></p>
+                {if count($authorArticle) != 0}
+                <form action="" method="post">
+                    <table class="table table-bordered" style="width: 90%; margin: auto;">
+                        {foreach $authorArticle as $k=>$v}
+                        <tr>
+                            <td>
+                                <label for="{$v['id']}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="checkbox" id="{$v['id']}" class="choose" name="checked[]" value="{$v['id']}">
+                            </td>
+                            <td><a href="?c=index&p=one&id={$v['id']}&nid={$v['nid']}">{$v['title']|truncate:11:'……'}</a></td>
+                            <td>
+                                <a href="?c=userCenter&action=update&id={$v['id']}">修改</a>
+                                <a href="?c=userCenter&action=delete&id={$v['id']}">删除</a>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        <tr>
+                            <td>
+                                <label for="allAd">全选 </label>
+                                <input type="checkbox" id="allAd">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle" colspan="2">
+                                <input type="submit" name="delete" value="删除" class="btn btn-danger">
+                            </td>
+                        </tr>
+                        <script type="text/javascript">
+                            $(document).on('click','#allAd',function () {
+                                $(".choose").prop("checked",$(this).prop("checked"));
+                            });
+                        </script>
+                    </table>
+                </form>
+                {/if}
+            </div>
         </section>
+        {/if}
+
+    {if $update}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <table class="table table-bordered" style="width: 98%; margin: auto;">
+                            <tr>
+                                <td class="text-center">文章标题</td>
+                                <td><input type="text" class="form-control" name="articleName" value="{$oneArt[0]['title']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">文章类型</td>
+                                <td>
+                                    <select name="articleNid" id="" class="form-control">
+                                        <option value="0">请选择</option>
+                                        {foreach $navData as $k=>$v}
+                                        {if $k!=0}
+                                            {if $oneArt[0]['nid'] == $v['id']}
+                                            <option value="{$v['id']}" selected>{$v['name']}</option>
+                                            {else}
+                                            <option value="{$v['id']}">{$v['name']}</option>
+                                            {/if}
+                                        {/if}
+                                        {/foreach}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">文章来源</td>
+                                <td><input type="text" class="form-control" name="articleSource" value="{$oneArt[0]['source']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">文章详情</td>
+                                <td width="90%"><textarea id="content" name="content" style="height: 400px">{$oneArt[0]['content']}</textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <p>文章配图</p>
+                                </td>
+                                <td class="row">
+                                    {foreach $oneArt[0]['pic'] as $k=>$v}
+                                    <div class="col-md-3">
+                                        <label for="aimg1" style="cursor: pointer; font-size: 14px; color: #9d9d9d;">上传文件</label>
+                                        <input type="file" class="hide fileInput1" id="aimg[$k]" name="articlePic1">
+                                        <img src="public/uploads/article/{$v}" alt="预览图片" class="fileImage1" width="100" height="100" style="line-height: 100px; text-align: center">
+                                    </div>
+                                    {/foreach}
+                                </td>
+                            </tr>
+                            <script>
+                                $('.imginfo').each(function (index) {
+                                    $(this).click(function () {
+                                        $('.imginfo').attr('class','btn imginfo');
+                                        $(this).attr('class','btn btn-info imginfo');
+                                        $('.num').val($(this).val());
+
+                                        if (index==0){
+                                            $('.filebox').addClass('hide').removeClass('show');
+                                        }else if(index==1){
+                                            $('.filebox').addClass('show').removeClass('hide');
+                                        }
+                                    })
+                                });
+                                $('.fileInput1').each(function (i) {
+                                    $(this).change(function () {
+                                        var fr = new FileReader();
+                                        fr.readAsDataURL($('.fileInput1')[i].files[0]);
+                                        fr.onload=function () {
+                                            $('.fileImage1')[i].src = this.result;
+                                        }
+                                    })
+                                })
+                            </script>
+                            <script src="libs/ueditor/ueditor.config.js"></script>
+                            <script src="libs/ueditor/ueditor.all.min.js"></script>
+                            <script>
+                                var ue = UE.getEditor('content');
+                            </script>
+
+                            <script type="text/javascript">
+                                var fileInput = document.getElementsByClassName('fileInput')[0];
+                                fileInput.onchange = function () {
+                                    var fr = new FileReader();
+                                    fr.readAsDataURL(this.files[0]);
+                                    fr.onload = function () {
+                                        document.getElementsByClassName('fileImg')[0].src = this.result;
+                                    }
+                                }
+                            </script>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <input type="submit" value="修改" name="send" class="btn btn-success">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {/if}
+
+        {if $userupdate}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <table class="table table-bordered" style="width: 98%; margin: auto;">
+                            <tr>
+                                <td class="text-center">用 户 名</td>
+                                <td><input type="text" class="form-control" name="userName" value="{$userMessage[0]['user']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</td>
+                                <td><input type="text" class="form-control" name="userPwd" value="{$userMessage[0]['pwd']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">手 机 号</td>
+                                <td><input type="text" class="form-control" name="userPhone" value="{$userMessage[0]['phonenum']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语</td>
+                                <td><input type="text" class="form-control" name="userLead" value="{$userMessage[0]['lead']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</td>
+                                <td><input type="text" class="form-control" name="userSex" value="{$userMessage[0]['sex']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄</td>
+                                <td><input type="text" class="form-control" name="userAge" value="{$userMessage[0]['age']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作</td>
+                                <td><input type="text" class="form-control" name="userWork" value="{$userMessage[0]['work']}"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">个人简介</td>
+                                <td><textarea type="text" class="form-control" style="height: 200px;" name="userDecs">{$userMessage[0]['decs']}</textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <p>头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像</p>
+                                </td>
+                                <td class="row">
+                                    <div class="col-md-3">
+                                        <label for="aimg1" style="cursor: pointer; font-size: 14px; color: #9d9d9d;">上传头像</label>
+                                        <input type="file" class="hide fileInput1" id="aimg1" name="userPic1">
+                                        <img src="public/uploads/author/{$userMessage[0]['pic']}" alt="预览图片" class="fileImage1" width="100" height="100" style="line-height: 100px; text-align: center">
+                                    </div>
+                                </td>
+                            </tr>
+                            <script>
+                                $('.imginfo').each(function (index) {
+                                    $(this).click(function () {
+                                        $('.imginfo').attr('class','btn imginfo');
+                                        $(this).attr('class','btn btn-info imginfo');
+                                        $('.num').val($(this).val());
+
+                                        if (index==0){
+                                            $('.filebox').addClass('hide').removeClass('show');
+                                        }else if(index==1){
+                                            $('.filebox').addClass('show').removeClass('hide');
+                                        }
+                                    })
+                                });
+                                $('.fileInput1').each(function (i) {
+                                    $(this).change(function () {
+                                        var fr = new FileReader();
+                                        fr.readAsDataURL($('.fileInput1')[i].files[0]);
+                                        fr.onload=function () {
+                                            $('.fileImage1')[i].src = this.result;
+                                        }
+                                    })
+                                })
+                            </script>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <input type="submit" value="修改" name="send" class="btn btn-success">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {/if}
     </body>
 </html>

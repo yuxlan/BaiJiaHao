@@ -18,13 +18,21 @@
 
             <ul class="nav nav-pills" style="float: right;">
                 <li>
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.admin.0.user}{$smarty.session.user.0.user}<span class="caret"></span></a>
+                    {if empty($smarty.session.admin.0.user)}
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.user.0.user}<span class="caret"></span></a>
+                    {else}
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.admin.0.user}<span class="caret"></span></a>
+                    {/if}
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="?c=index&m=userCenter">个人中心</a>
+                            <a href="?c=userCenter&action=show">个人中心</a>
                         </li>
                         <li>
+                            {if empty($smarty.session.admin.0.user)}
                             <a href="?c=user&action=userlogout">退出</a>
+                            {else}
+                            <a href="??c=user&action=logout">退出</a>
+                            {/if}
                         </li>
                     </ul>
                 </li>

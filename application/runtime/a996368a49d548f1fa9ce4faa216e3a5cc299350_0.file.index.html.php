@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 20:05:39
+/* Smarty version 3.1.30, created on 2017-08-03 10:58:33
   from "D:\php\wamp\www\BaiJia\application\views\home\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5981c0135938c2_47305621',
+  'unifunc' => 'content_59829159e23d47_55485300',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a996368a49d548f1fa9ce4faa216e3a5cc299350' => 
     array (
       0 => 'D:\\php\\wamp\\www\\BaiJia\\application\\views\\home\\index.html',
-      1 => 1501675170,
+      1 => 1501728974,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/footer.html' => 1,
   ),
 ),false)) {
-function content_5981c0135938c2_47305621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59829159e23d47_55485300 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once 'D:\\php\\wamp\\www\\BaiJia\\libs\\smarty-3.1.30\\libs\\plugins\\modifier.truncate.php';
 ?>
 <!DOCTYPE html>
@@ -38,6 +38,10 @@ if (!is_callable('smarty_modifier_truncate')) require_once 'D:\\php\\wamp\\www\\
 
 		<?php if ($_smarty_tpl->tpl_vars['page']->value) {?>
 		<title>频道列表-百家号</title>
+		<?php }?>
+
+		<?php if ($_smarty_tpl->tpl_vars['one']->value) {?>
+		<title>文章详情</title>
 		<?php }?>
 	
 		<!-- 首页自定义样式 -->
@@ -194,7 +198,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
 "><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20,'……');?>
 </a>
 													<div class="media-text">
-														<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+														<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorId']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 </a>
 														<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
 </p>
@@ -253,7 +258,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
 
 											<div class="media-text">
 
-												<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+												<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorId']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 </a>
 												<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
 </p>
@@ -382,7 +388,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
 "><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20,'……');?>
 </a>
 													<div class="media-text">
-														<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+														<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorId']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 </a>
 														<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
 </p>
@@ -441,7 +448,8 @@ for ($_foo=true;$_smarty_tpl->tpl_vars['i']->value < count($_smarty_tpl->tpl_var
 
 											<div class="media-text">
 
-												<a href="javascript:;"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+												<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorId']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+"><?php echo $_smarty_tpl->tpl_vars['artAuthorName']->value[$_smarty_tpl->tpl_vars['k']->value];?>
 </a>
 												<p><?php echo substr($_smarty_tpl->tpl_vars['v']->value['date'],11,5);?>
 </p>
@@ -502,11 +510,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars[
 										</div>
 
 										<div class="media-author-part col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" ><?php echo $_smarty_tpl->tpl_vars['artAuthorNameView']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+											<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorIdView']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+" class="media-author-part-a1" ><?php echo $_smarty_tpl->tpl_vars['artAuthorNameView']->value[$_smarty_tpl->tpl_vars['k']->value];?>
  </a>
-											<a href="javascript:;" class="media-author-part-a2" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['artAuthorLeadView']->value[$_smarty_tpl->tpl_vars['k']->value],10);?>
+											<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorIdView']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+" class="media-author-part-a2" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['artAuthorLeadView']->value[$_smarty_tpl->tpl_vars['k']->value],10);?>
 </a>
-											<a href="javascript:;" class="media-author-part-a3" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20);?>
+											<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorIdView']->value[$_smarty_tpl->tpl_vars['k']->value];?>
+" class="media-author-part-a3" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['v']->value['title'],20);?>
 </a>
 										</div>
 									</div>
@@ -616,12 +627,23 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 </a></p>
 											<table style="width:14%;text-align: center;float:right;display: inline-block;font-size: 18px;color: #9d9d9d">
 												<tr>
-													<td width="40%"><i class="fa fa-thumbs-o-up"></i></td>
-													<td width="40%">|</td>
-													<td width="40%"><i class="fa fa-thumbs-o-down"></i></td>
+													<?php echo $_smarty_tpl->tpl_vars['likeArticle']->value;?>
+
 												</tr>
 											</table>
 										</div>
+										<?php echo '<script'; ?>
+ type="text/javascript">
+											$('#oup').click(function () {
+												$('#oupi').removeClass('fa-thumbs-o-up');
+												$('#oupi').addClass('fa-thumbs-up');
+                                            });
+                                            $('#odown').click(function () {
+                                                $('#odowni').removeClass('fa-thumbs-o-down');
+                                                $('#odowni').addClass('fa-thumbs-down');
+                                            });
+										<?php echo '</script'; ?>
+>
 										<hr style="margin-bottom: 30px">
 										<div style="margin-left: 25px;margin-bottom: 60px;">
 											&nbsp;<p style="font-size: 18px;">分享</p>
@@ -647,9 +669,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 										</div>
 
 										<div class="media-author-part-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<a href="javascript:;" class="media-author-part-a1" ><?php echo $_smarty_tpl->tpl_vars['artAuthorNameView']->value[0];?>
+											<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorIdView']->value[0];?>
+" class="media-author-part-a1" ><?php echo $_smarty_tpl->tpl_vars['artAuthorNameView']->value[0];?>
  </a>
-											<a href="javascript:;" class="media-author-part-a2" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['artAuthorLeadView']->value[0],10);?>
+											<a href="?c=index&m=authorArticle&id=<?php echo $_smarty_tpl->tpl_vars['artAuthorIdView']->value[0];?>
+" class="media-author-part-a2" ><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['artAuthorLeadView']->value[0],10);?>
 </a>
 										</div>
 									</div>
